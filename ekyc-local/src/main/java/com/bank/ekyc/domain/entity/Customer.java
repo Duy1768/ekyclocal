@@ -15,6 +15,8 @@ public class Customer {
 
     private String idNumber;
 
+    private String idCardImage;
+
     private String phone;
 
     private String email;

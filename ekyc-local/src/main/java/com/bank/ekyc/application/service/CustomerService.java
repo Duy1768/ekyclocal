@@ -1,14 +1,16 @@
 package com.bank.ekyc.application.service;
 
-import com.bank.ekyc.common.dto.BaseResponse;
 import com.bank.ekyc.common.constant.HeaderConstant;
+import com.bank.ekyc.common.constant.ResponseCode;
+import com.bank.ekyc.common.dto.BaseResponse;
 import com.bank.ekyc.domain.entity.Customer;
 import com.bank.ekyc.infrastructure.dao.CustomerDao;
-import com.bank.ekyc.presentation.request.CustomerRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -20,46 +22,93 @@ public class CustomerService {
 
     private final CustomerDao customerDao;
 
+    private final ImageStorageService imageStorageService;
+
     public BaseResponse<String> createCustomer(
-            CustomerRequest request) {
+            String fullName,
+            String idNumber,
+            String phone,
+            String email,
+            MultipartFile idCardImage) {
 
-        log.info("step=service_started operation=create_customer");
+        try {
 
-        Customer customer = new Customer();
+            log.info(
+                    "step=service_started operation=create_customer");
 
-        customer.setCustomerCode(
-                UUID.randomUUID().toString());
+            Customer customer = new Customer();
 
-        log.info("step=customer_code_generated customerCode={}", customer.getCustomerCode());
+            customer.setCustomerCode(
+                    UUID.randomUUID().toString());
 
-        customer.setFullName(
-                request.getFullName());
+            String imagePath =
+                    imageStorageService.saveFile(
+                            idCardImage);
 
-        customer.setIdNumber(
-                request.getIdNumber());
+            customer.setFullName(
+                    fullName);
 
-        customer.setPhone(
-                request.getPhone());
+            customer.setIdNumber(
+                    idNumber);
 
-        customer.setEmail(
-                request.getEmail());
+            customer.setPhone(
+                    phone);
 
-        customer.setCreatedTime(
-                LocalDateTime.now());
+            customer.setEmail(
+                    email);
 
-        log.info("step=customer_entity_mapped");
+            customer.setIdCardImage(
+                    imagePath);
 
-        log.info("step=customer_persistence_started customerCode={}", customer.getCustomerCode());
-        customerDao.insert(customer);
+            customer.setCreatedTime(
+                    LocalDateTime.now());
 
-        log.info("step=service_completed operation=create_customer customerCode={}", customer.getCustomerCode());
+            customerDao.insert(
+                    customer);
 
-        return BaseResponse.<String>builder()
-                .responseCode("0000")
-                .responseMessage("Success")
-                .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
-                .requestTime(LocalDateTime.now().toString())
-                .data("Customer Created")
-                .build();
+            return BaseResponse.<String>builder()
+                    .responseCode(
+                            ResponseCode.SUCCESS.getCode())
+                    .responseMessage(
+                            ResponseCode.SUCCESS.getMessage())
+                    .responseId(
+                            MDC.get(
+                                    HeaderConstant.MDC_REQUEST_ID))
+                    .requestTime(
+                            LocalDateTime.now().toString())
+                    .data("Customer Created")
+                    .build();
+
+        } catch (DuplicateKeyException ex) {
+
+            return BaseResponse.<String>builder()
+                    .responseCode("1005")
+                    .responseMessage(
+                            "ID Number Already Exists")
+                    .responseId(
+                            MDC.get(
+                                    HeaderConstant.MDC_REQUEST_ID))
+                    .requestTime(
+                            LocalDateTime.now().toString())
+                    .build();
+
+        } catch (Exception ex) {
+
+            log.error(
+                    "step=service_failed",
+                    ex);
+
+            return BaseResponse.<String>builder()
+                    .responseCode(
+                            ResponseCode.SYSTEM_ERROR.getCode())
+                    .responseMessage(
+                            ResponseCode.SYSTEM_ERROR.getMessage())
+                    .responseId(
+                            MDC.get(
+                                    HeaderConstant.MDC_REQUEST_ID))
+                    .requestTime(
+                            LocalDateTime.now().toString())
+                    .build();
+        }
     }
 }

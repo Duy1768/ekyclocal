@@ -15,40 +15,57 @@ public class CustomerDao {
 
     public int insert(Customer customer) {
 
-        log.info("step=database_insert_started entity=customer customerCode={}", customer.getCustomerCode());
+        try {
 
-        String sql = """
-                INSERT INTO customer
-                (
-                    customer_code,
-                    full_name,
-                    id_number,
-                    phone,
-                    email,
-                    created_time
-                )
-                VALUES
-                (
-                    ?, ?, ?, ?, ?, ?
-                )
-                """;
+            log.info(
+                    "step=database_insert_started entity=customer customerCode={}",
+                    customer.getCustomerCode());
 
-        int insertedRows =
-                jdbcTemplate.update(
-                sql,
-                customer.getCustomerCode(),
-                customer.getFullName(),
-                customer.getIdNumber(),
-                customer.getPhone(),
-                customer.getEmail(),
-                customer.getCreatedTime()
-        );
+            String sql = """
+                    INSERT INTO customer
+                    (
+                        customer_code,
+                        full_name,
+                        id_number,
+                        idcard_image,
+                        phone,
+                        email,
+                        created_time
+                    )
+                    VALUES
+                    (
+                        ?, ?, ?, ?, ?, ?, ?
+                    )
+                    """;
 
-        log.info(
-                "step=database_insert_completed entity=customer customerCode={} affectedRows={}",
-                customer.getCustomerCode(),
-                insertedRows);
+            int insertedRows =
+                    jdbcTemplate.update(
+                            sql,
+                            customer.getCustomerCode(),
+                            customer.getFullName(),
+                            customer.getIdNumber(),
+                            customer.getIdCardImage(),
+                            customer.getPhone(),
+                            customer.getEmail(),
+                            customer.getCreatedTime()
+                    );
 
-        return insertedRows;
+            log.info(
+                    "step=database_insert_completed entity=customer customerCode={} affectedRows={}",
+                    customer.getCustomerCode(),
+                    insertedRows);
+
+            return insertedRows;
+
+        } catch (Exception ex) {
+
+            log.error(
+                    "step=database_insert_failed entity=customer customerCode={} error={}",
+                    customer.getCustomerCode(),
+                    ex.getMessage(),
+                    ex);
+
+            throw ex;
+        }
     }
 }

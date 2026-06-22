@@ -43,60 +43,64 @@ public class SignatureValidationFilter
             throws ServletException, IOException {
 
         String requestId =
-                request.getHeader(HeaderConstant.REQUEST_ID);
+                request.getHeader(
+                        HeaderConstant.REQUEST_ID);
 
         String requestDateTime =
-                request.getHeader(HeaderConstant.REQUEST_TIME);
+                request.getHeader(
+                        HeaderConstant.REQUEST_TIME);
 
         String signature =
-                request.getHeader(HeaderConstant.JWS_SIGNATURE);
+                request.getHeader(
+                        HeaderConstant.JWS_SIGNATURE);
 
         if (requestId == null ||
+                requestId.isBlank() ||
                 requestDateTime == null ||
-                signature == null) {
+                requestDateTime.isBlank() ||
+                signature == null ||
+                signature.isBlank()) {
 
             log.warn(
-                    "step=signature_rejected reason=missing_header requestIdPresent={} requestDateTimePresent={} signaturePresent={}",
-                    requestId != null,
-                    requestDateTime != null,
-                    signature != null);
+                    "step=signature_rejected reason=missing_header");
 
             writeErrorResponse(
                     response,
                     ResponseCode.MISSING_HEADER);
+
             return;
         }
 
-        log.info("step=signature_validation_started requestDateTime={}", requestDateTime);
-
-        String body =
-                new String(
-                        request.getInputStream().readAllBytes(),
-                        StandardCharsets.UTF_8);
-
-        log.info("step=request_body_read bodySizeBytes={}", body.getBytes(StandardCharsets.UTF_8).length);
+        log.info(
+                "step=signature_validation_started requestId={} requestDateTime={}",
+                requestId,
+                requestDateTime);
 
         String plainText =
-                body +
-                        requestId +
+                requestId +
                         requestDateTime;
 
         String generatedSignature =
                 HmacUtil.sign(
                         plainText,
-                signatureProperties.getSecretKey());
+                        signatureProperties.getSecretKey());
 
         if (!generatedSignature.equals(signature)) {
 
-            log.warn("step=signature_rejected reason=invalid_signature");
+            log.warn(
+                    "step=signature_rejected reason=invalid_signature requestId={}",
+                    requestId);
 
             writeErrorResponse(
                     response,
                     ResponseCode.INVALID_SIGNATURE);
+
             return;
         }
 
-        log.info("step=signature_validated");
+        log.info(
+                "step=signature_validated requestId={}",
+                requestId);
 
         filterChain.doFilter(
                 request,
@@ -108,16 +112,26 @@ public class SignatureValidationFilter
             ResponseCode responseCode)
             throws IOException {
 
-        response.setStatus(HttpStatus.BAD_REQUEST.value());
-        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        response.setStatus(
+                HttpStatus.BAD_REQUEST.value());
+
+        response.setContentType(
+                MediaType.APPLICATION_JSON_VALUE);
+
+        response.setCharacterEncoding(
+                StandardCharsets.UTF_8.name());
 
         BaseResponse<Void> errorResponse =
                 BaseResponse.<Void>builder()
-                        .responseCode(responseCode.getCode())
-                        .responseMessage(responseCode.getMessage())
-                        .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
-                        .requestTime(LocalDateTime.now().toString())
+                        .responseCode(
+                                responseCode.getCode())
+                        .responseMessage(
+                                responseCode.getMessage())
+                        .responseId(
+                                MDC.get(
+                                        HeaderConstant.MDC_REQUEST_ID))
+                        .requestTime(
+                                LocalDateTime.now().toString())
                         .build();
 
         objectMapper.writeValue(
