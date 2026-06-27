@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.io.ByteArrayInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -23,6 +23,18 @@ import java.nio.charset.StandardCharsets;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CachedBodyFilter
         extends OncePerRequestFilter {
+
+    @Override
+    protected boolean shouldNotFilter(
+            HttpServletRequest request) {
+
+        String contentType =
+                request.getContentType();
+
+        return contentType != null
+                && contentType.startsWith(
+                "multipart/");
+    }
 
     @Override
     protected void doFilterInternal(
@@ -46,15 +58,18 @@ public class CachedBodyFilter
                 throws IOException {
 
             super(request);
+
             this.cachedBody =
-                    StreamUtils.copyToByteArray(request.getInputStream());
+                    StreamUtils.copyToByteArray(
+                            request.getInputStream());
         }
 
         @Override
         public ServletInputStream getInputStream() {
 
             ByteArrayInputStream inputStream =
-                    new ByteArrayInputStream(cachedBody);
+                    new ByteArrayInputStream(
+                            cachedBody);
 
             return new ServletInputStream() {
 
@@ -82,6 +97,7 @@ public class CachedBodyFilter
 
         @Override
         public BufferedReader getReader() {
+
             return new BufferedReader(
                     new InputStreamReader(
                             getInputStream(),

@@ -7,6 +7,7 @@ import com.bank.ekyc.domain.entity.Customer;
 import com.bank.ekyc.infrastructure.dao.CustomerDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.MDC;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -36,10 +37,15 @@ public class CustomerService {
             log.info(
                     "step=service_started operation=create_customer");
 
-            Customer customer = new Customer();
+            Customer customer =
+                    new Customer();
 
             customer.setCustomerCode(
                     UUID.randomUUID().toString());
+
+            String imageChecksum =
+                    DigestUtils.sha256Hex(
+                            idCardImage.getBytes());
 
             String imagePath =
                     imageStorageService.saveFile(
@@ -60,11 +66,18 @@ public class CustomerService {
             customer.setIdCardImage(
                     imagePath);
 
+            customer.setImageChecksum(
+                    imageChecksum);
+
             customer.setCreatedTime(
                     LocalDateTime.now());
 
             customerDao.insert(
                     customer);
+
+            log.info(
+                    "step=service_completed operation=create_customer customerCode={}",
+                    customer.getCustomerCode());
 
             return BaseResponse.<String>builder()
                     .responseCode(
@@ -76,10 +89,15 @@ public class CustomerService {
                                     HeaderConstant.MDC_REQUEST_ID))
                     .requestTime(
                             LocalDateTime.now().toString())
-                    .data("Customer Created")
+                    .data(
+                            customer.getCustomerCode())
                     .build();
 
         } catch (DuplicateKeyException ex) {
+
+            log.warn(
+                    "step=service_failed reason=duplicate_id_number idNumber={}",
+                    idNumber);
 
             return BaseResponse.<String>builder()
                     .responseCode("1005")
@@ -95,7 +113,7 @@ public class CustomerService {
         } catch (Exception ex) {
 
             log.error(
-                    "step=service_failed",
+                    "step=service_failed operation=create_customer",
                     ex);
 
             return BaseResponse.<String>builder()

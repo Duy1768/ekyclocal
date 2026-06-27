@@ -28,13 +28,14 @@ public class CustomerDao {
                         full_name,
                         id_number,
                         idcard_image,
+                        image_checksum,
                         phone,
                         email,
                         created_time
                     )
                     VALUES
                     (
-                        ?, ?, ?, ?, ?, ?, ?
+                        ?, ?, ?, ?, ?, ?, ?, ?
                     )
                     """;
 
@@ -45,6 +46,7 @@ public class CustomerDao {
                             customer.getFullName(),
                             customer.getIdNumber(),
                             customer.getIdCardImage(),
+                            customer.getImageChecksum(),
                             customer.getPhone(),
                             customer.getEmail(),
                             customer.getCreatedTime()

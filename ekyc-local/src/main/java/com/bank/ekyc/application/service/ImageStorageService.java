@@ -13,16 +13,26 @@ import java.util.UUID;
 @Slf4j
 public class ImageStorageService {
 
-    private static final String UPLOAD_DIR =
-            "uploads/idcard";
-
     public String saveFile(
             MultipartFile file) {
 
         try {
 
+            Path uploadDir =
+                    Paths.get(
+                            System.getProperty("user.dir"),
+                            "uploads",
+                            "idcard");
+            log.info(
+                    "step=create_directory path={}",
+                    uploadDir.toAbsolutePath());
+
             Files.createDirectories(
-                    Paths.get(UPLOAD_DIR));
+                    uploadDir);
+
+            log.info(
+                    "step=create_directory path={}",
+                    uploadDir.toAbsolutePath());
 
             String fileName =
                     UUID.randomUUID()
@@ -30,8 +40,7 @@ public class ImageStorageService {
                             + file.getOriginalFilename();
 
             Path filePath =
-                    Paths.get(
-                            UPLOAD_DIR,
+                    uploadDir.resolve(
                             fileName);
 
             file.transferTo(
@@ -39,7 +48,7 @@ public class ImageStorageService {
 
             log.info(
                     "step=image_saved path={}",
-                    filePath);
+                    filePath.toAbsolutePath());
 
             return filePath.toString();
 

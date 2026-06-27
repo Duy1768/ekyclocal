@@ -22,5 +22,7 @@ public class Customer {
     private String email;
 
     private LocalDateTime createdTime;
+
+    private String imageChecksum;
 }
 

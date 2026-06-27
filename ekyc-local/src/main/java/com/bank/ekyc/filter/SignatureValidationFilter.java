@@ -19,9 +19,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartResolver;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 @Slf4j
@@ -35,6 +36,8 @@ public class SignatureValidationFilter
 
     private final ObjectMapper objectMapper;
 
+    private final MultipartResolver multipartResolver;
+
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
@@ -43,26 +46,17 @@ public class SignatureValidationFilter
             throws ServletException, IOException {
 
         String requestId =
-                request.getHeader(
-                        HeaderConstant.REQUEST_ID);
+                request.getHeader(HeaderConstant.REQUEST_ID);
 
         String requestDateTime =
-                request.getHeader(
-                        HeaderConstant.REQUEST_TIME);
+                request.getHeader(HeaderConstant.REQUEST_TIME);
 
         String signature =
-                request.getHeader(
-                        HeaderConstant.JWS_SIGNATURE);
+                request.getHeader(HeaderConstant.JWS_SIGNATURE);
 
         if (requestId == null ||
-                requestId.isBlank() ||
                 requestDateTime == null ||
-                requestDateTime.isBlank() ||
-                signature == null ||
-                signature.isBlank()) {
-
-            log.warn(
-                    "step=signature_rejected reason=missing_header");
+                signature == null) {
 
             writeErrorResponse(
                     response,
@@ -71,13 +65,23 @@ public class SignatureValidationFilter
             return;
         }
 
-        log.info(
-                "step=signature_validation_started requestId={} requestDateTime={}",
-                requestId,
-                requestDateTime);
+        String body = "";
+
+        if (multipartResolver.isMultipart(request)) {
+
+            MultipartHttpServletRequest multipartRequest =
+                    multipartResolver.resolveMultipart(request);
+
+            body =
+                    "fullName=" + multipartRequest.getParameter("fullName")
+                            + "&idNumber=" + multipartRequest.getParameter("idNumber")
+                            + "&phone=" + multipartRequest.getParameter("phone")
+                            + "&email=" + multipartRequest.getParameter("email");
+        }
 
         String plainText =
-                requestId +
+                body +
+                        requestId +
                         requestDateTime;
 
         String generatedSignature =
@@ -85,11 +89,12 @@ public class SignatureValidationFilter
                         plainText,
                         signatureProperties.getSecretKey());
 
-        if (!generatedSignature.equals(signature)) {
+        log.info("body={}", body);
+        log.info("plainText={}", plainText);
+        log.info("generatedSignature={}", generatedSignature);
+        log.info("receivedSignature={}", signature);
 
-            log.warn(
-                    "step=signature_rejected reason=invalid_signature requestId={}",
-                    requestId);
+        if (!generatedSignature.equals(signature)) {
 
             writeErrorResponse(
                     response,
@@ -97,10 +102,6 @@ public class SignatureValidationFilter
 
             return;
         }
-
-        log.info(
-                "step=signature_validated requestId={}",
-                requestId);
 
         filterChain.doFilter(
                 request,
@@ -112,27 +113,20 @@ public class SignatureValidationFilter
             ResponseCode responseCode)
             throws IOException {
 
-        response.setStatus(
-                HttpStatus.BAD_REQUEST.value());
-
-        response.setContentType(
-                MediaType.APPLICATION_JSON_VALUE);
-
-        response.setCharacterEncoding(
-                StandardCharsets.UTF_8.name());
+        response.setStatus(HttpStatus.OK.value());
 
         BaseResponse<Void> errorResponse =
                 BaseResponse.<Void>builder()
-                        .responseCode(
-                                responseCode.getCode())
-                        .responseMessage(
-                                responseCode.getMessage())
+                        .responseCode(responseCode.getCode())
+                        .responseMessage(responseCode.getMessage())
                         .responseId(
-                                MDC.get(
-                                        HeaderConstant.MDC_REQUEST_ID))
+                                MDC.get(HeaderConstant.MDC_REQUEST_ID))
                         .requestTime(
                                 LocalDateTime.now().toString())
                         .build();
+
+        response.setContentType(
+                MediaType.APPLICATION_JSON_VALUE);
 
         objectMapper.writeValue(
                 response.getWriter(),
