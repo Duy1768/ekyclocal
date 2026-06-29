@@ -14,11 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import software.amazon.awssdk.core.SdkBytes;
-import software.amazon.awssdk.services.rekognition.RekognitionClient;
-import software.amazon.awssdk.services.rekognition.model.CompareFacesRequest;
 import software.amazon.awssdk.services.rekognition.model.CompareFacesResponse;
-import software.amazon.awssdk.services.rekognition.model.Image;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,19 +25,15 @@ import java.nio.file.Path;
 public class FaceCompareService {
 
     private final CustomerDao customerDao;
-
     private final FaceCompareHistoryDao faceCompareHistoryDao;
-
-    private final RekognitionClient rekognitionClient;
-
+    private final RekognitionService rekognitionService;
     private final ImageStorageService imageStorageService;
 
     public FaceCompareResponse compareFace(
             String customerCode,
             MultipartFile selfieImage) {
 
-        long startTime =
-                System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
 
         try {
 
@@ -50,101 +42,61 @@ public class FaceCompareService {
                     customerCode);
 
             Customer customer =
-                    customerDao.findByCustomerCode(
-                            customerCode);
+                    customerDao.findByCustomerCode(customerCode);
 
             if (customer == null) {
-
                 throw new BusinessException(
                         ResponseCode.CUSTOMER_NOT_FOUND);
             }
 
-            byte[] selfieBytes =
-                    selfieImage.getBytes();
+            byte[] selfieBytes = selfieImage.getBytes();
 
             String selfieChecksum =
-                    ChecksumUtil.sha256(
-                            selfieBytes);
+                    ChecksumUtil.sha256(selfieBytes);
 
-            if (selfieChecksum.equals(
-                    customer.getImageChecksum())) {
-
+            if (selfieChecksum.equals(customer.getImageChecksum())) {
                 throw new BusinessException(
                         ResponseCode.SELFIE_IMAGE_DUPLICATE_ID_CARD_IMAGE);
             }
 
             String selfieImagePath =
-                    imageStorageService.saveSelfie(
-                            selfieImage);
+                    imageStorageService.saveSelfie(selfieImage);
 
             Path idCardPath =
-                    Path.of(
-                            customer.getIdCardImage());
+                    Path.of(customer.getIdCardImage());
 
             if (!Files.exists(idCardPath)) {
-
                 throw new RuntimeException(
-                        "Id Card Image Not Found: "
-                                + idCardPath);
+                        "Id Card Image Not Found: " + idCardPath);
             }
 
             byte[] idCardBytes =
-                    Files.readAllBytes(
-                            idCardPath);
+                    Files.readAllBytes(idCardPath);
 
             log.info(
                     "step=rekognition_compare_started customerCode={} imagePath={}",
                     customerCode,
                     customer.getIdCardImage());
 
-            CompareFacesRequest request =
-                    CompareFacesRequest.builder()
-                            .sourceImage(
-                                    Image.builder()
-                                            .bytes(
-                                                    SdkBytes.fromByteArray(
-                                                            idCardBytes))
-                                            .build())
-                            .targetImage(
-                                    Image.builder()
-                                            .bytes(
-                                                    SdkBytes.fromByteArray(
-                                                            selfieBytes))
-                                            .build())
-                            .similarityThreshold(
-                                    0F)
-                            .build();
-
             CompareFacesResponse response =
-                    rekognitionClient.compareFaces(
-                            request);
+                    rekognitionService.compareFaces(
+                            idCardBytes,
+                            selfieBytes);
 
             double similarity =
                     response.faceMatches()
                             .stream()
                             .findFirst()
-                            .map(
-                                    faceMatch ->
-                                            (double) faceMatch.similarity())
+                            .map(faceMatch ->
+                                    (double) faceMatch.similarity())
                             .orElse(0D);
 
-            CompareStatus compareStatus;
-
-            if (similarity >= 95D) {
-
-                compareStatus =
-                        CompareStatus.MATCH;
-
-            } else if (similarity >= 80D) {
-
-                compareStatus =
-                        CompareStatus.REVIEW;
-
-            } else {
-
-                compareStatus =
-                        CompareStatus.NOT_MATCH;
-            }
+            CompareStatus compareStatus =
+                    similarity >= 95D
+                            ? CompareStatus.MATCH
+                            : similarity >= 80D
+                              ? CompareStatus.REVIEW
+                              : CompareStatus.NOT_MATCH;
 
             faceCompareHistoryDao.insert(
                     customerCode,
@@ -154,25 +106,20 @@ public class FaceCompareService {
                     compareStatus.name());
 
             long durationMs =
-                    System.currentTimeMillis()
-                            - startTime;
+                    System.currentTimeMillis() - startTime;
 
             log.info(
                     "step=face_compare_completed requestId={} customerCode={} similarity={} compareStatus={} durationMs={}",
-                    MDC.get(
-                            HeaderConstant.MDC_REQUEST_ID),
+                    MDC.get(HeaderConstant.MDC_REQUEST_ID),
                     customerCode,
                     similarity,
                     compareStatus,
                     durationMs);
 
             return FaceCompareResponse.builder()
-                    .customerCode(
-                            customerCode)
-                    .similarity(
-                            similarity)
-                    .compareStatus(
-                            compareStatus.name())
+                    .customerCode(customerCode)
+                    .similarity(similarity)
+                    .compareStatus(compareStatus.name())
                     .build();
 
         } catch (BusinessException ex) {
@@ -191,5 +138,4 @@ public class FaceCompareService {
                     ex);
         }
     }
-
 }

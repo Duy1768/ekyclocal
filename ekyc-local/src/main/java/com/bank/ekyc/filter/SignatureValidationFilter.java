@@ -29,14 +29,10 @@ import java.time.LocalDateTime;
 @Component
 @RequiredArgsConstructor
 @Order(Ordered.HIGHEST_PRECEDENCE + 2)
-public class SignatureValidationFilter
-        extends OncePerRequestFilter {
+public class SignatureValidationFilter extends OncePerRequestFilter {
 
     private final SignatureProperties signatureProperties;
-
     private final ObjectMapper objectMapper;
-
-    private final MultipartResolver multipartResolver;
 
     @Override
     protected void doFilterInternal(
@@ -46,23 +42,20 @@ public class SignatureValidationFilter
             throws ServletException, IOException {
 
         String requestId =
-                request.getHeader(
-                        HeaderConstant.REQUEST_ID);
+                request.getHeader(HeaderConstant.REQUEST_ID);
 
         String requestDateTime =
-                request.getHeader(
-                        HeaderConstant.REQUEST_TIME);
+                request.getHeader(HeaderConstant.REQUEST_TIME);
 
         String signature =
-                request.getHeader(
-                        HeaderConstant.JWS_SIGNATURE);
+                request.getHeader(HeaderConstant.JWS_SIGNATURE);
 
-        if (requestId == null ||
-                requestId.isBlank() ||
-                requestDateTime == null ||
-                requestDateTime.isBlank() ||
-                signature == null ||
-                signature.isBlank()) {
+        if (requestId == null
+                || requestId.isBlank()
+                || requestDateTime == null
+                || requestDateTime.isBlank()
+                || signature == null
+                || signature.isBlank()) {
 
             log.warn(
                     "step=signature_validation_failed reason=missing_header");
@@ -74,35 +67,20 @@ public class SignatureValidationFilter
             return;
         }
 
-        String body =
-                buildRequestBody(
-                        request);
+        String body = buildRequestBody(request);
 
         String plainText =
-                body +
-                        requestId +
-                        requestDateTime;
+                body + requestId + requestDateTime;
 
         String generatedSignature =
                 HmacUtil.sign(
                         plainText,
                         signatureProperties.getSecretKey());
 
-        log.info(
-                "body={}",
-                body);
-
-        log.info(
-                "plainText={}",
-                plainText);
-
-        log.info(
-                "generatedSignature={}",
-                generatedSignature);
-
-        log.info(
-                "receivedSignature={}",
-                signature);
+        log.info("body={}", body);
+        log.info("plainText={}", plainText);
+        log.info("generatedSignature={}", generatedSignature);
+        log.info("receivedSignature={}", signature);
 
         if (!generatedSignature.equals(signature)) {
 
@@ -127,8 +105,7 @@ public class SignatureValidationFilter
     private String buildRequestBody(
             HttpServletRequest request) {
 
-        String uri =
-                request.getRequestURI();
+        String uri = request.getRequestURI();
 
         if ("/api/v1/customer".equals(uri)) {
 
@@ -156,23 +133,16 @@ public class SignatureValidationFilter
             ResponseCode responseCode)
             throws IOException {
 
-        response.setStatus(
-                HttpStatus.OK.value());
-
-        response.setContentType(
-                MediaType.APPLICATION_JSON_VALUE);
+        response.setStatus(HttpStatus.OK.value());
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
         BaseResponse<Void> errorResponse =
                 BaseResponse.<Void>builder()
-                        .responseCode(
-                                responseCode.getCode())
-                        .responseMessage(
-                                responseCode.getMessage())
+                        .responseCode(responseCode.getCode())
+                        .responseMessage(responseCode.getMessage())
                         .responseId(
-                                MDC.get(
-                                        HeaderConstant.MDC_REQUEST_ID))
-                        .requestTime(
-                                LocalDateTime.now().toString())
+                                MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                        .requestTime(LocalDateTime.now().toString())
                         .build();
 
         objectMapper.writeValue(

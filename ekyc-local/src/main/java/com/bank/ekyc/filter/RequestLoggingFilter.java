@@ -18,8 +18,7 @@ import java.util.UUID;
 @Slf4j
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE + 1)
-public class RequestLoggingFilter
-        extends OncePerRequestFilter {
+public class RequestLoggingFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(
@@ -41,13 +40,16 @@ public class RequestLoggingFilter
         long startTime = System.currentTimeMillis();
 
         try {
+
             log.info(
                     "step=request_received method={} uri={} remoteAddress={}",
                     request.getMethod(),
                     request.getRequestURI(),
                     request.getRemoteAddr());
 
-            filterChain.doFilter(request, response);
+            filterChain.doFilter(
+                    request,
+                    response);
 
             log.info(
                     "step=request_completed status={} durationMs={}",
@@ -55,15 +57,18 @@ public class RequestLoggingFilter
                     System.currentTimeMillis() - startTime);
 
         } catch (Exception exception) {
+
             log.error(
                     "step=request_failed status={} durationMs={} exceptionType={}",
                     response.getStatus(),
                     System.currentTimeMillis() - startTime,
                     exception.getClass().getSimpleName(),
                     exception);
+
             throw exception;
 
         } finally {
+
             MDC.remove(HeaderConstant.MDC_REQUEST_ID);
         }
     }
