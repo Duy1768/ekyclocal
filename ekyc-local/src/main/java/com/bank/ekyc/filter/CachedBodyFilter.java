@@ -21,19 +21,16 @@ import java.nio.charset.StandardCharsets;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class CachedBodyFilter
-        extends OncePerRequestFilter {
+public class CachedBodyFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(
             HttpServletRequest request) {
 
-        String contentType =
-                request.getContentType();
+        String contentType = request.getContentType();
 
         return contentType != null
-                && contentType.startsWith(
-                "multipart/");
+                && contentType.startsWith("multipart/");
     }
 
     @Override
@@ -68,8 +65,7 @@ public class CachedBodyFilter
         public ServletInputStream getInputStream() {
 
             ByteArrayInputStream inputStream =
-                    new ByteArrayInputStream(
-                            cachedBody);
+                    new ByteArrayInputStream(cachedBody);
 
             return new ServletInputStream() {
 

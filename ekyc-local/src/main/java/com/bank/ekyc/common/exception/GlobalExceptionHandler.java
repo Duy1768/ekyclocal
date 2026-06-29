@@ -27,15 +27,11 @@ public class GlobalExceptionHandler {
                 responseCode.getMessage());
 
         return BaseResponse.<Void>builder()
-                .responseCode(
-                        responseCode.getCode())
-                .responseMessage(
-                        responseCode.getMessage())
+                .responseCode(responseCode.getCode())
+                .responseMessage(responseCode.getMessage())
                 .responseId(
-                        MDC.get(
-                                HeaderConstant.MDC_REQUEST_ID))
-                .requestTime(
-                        LocalDateTime.now().toString())
+                        MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                .requestTime(LocalDateTime.now().toString())
                 .build();
     }
 
@@ -54,10 +50,8 @@ public class GlobalExceptionHandler {
                 .responseMessage(
                         ResponseCode.SYSTEM_ERROR.getMessage())
                 .responseId(
-                        MDC.get(
-                                HeaderConstant.MDC_REQUEST_ID))
-                .requestTime(
-                        LocalDateTime.now().toString())
+                        MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                .requestTime(LocalDateTime.now().toString())
                 .build();
     }
 }
