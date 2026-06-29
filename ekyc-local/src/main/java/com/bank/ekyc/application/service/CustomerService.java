@@ -48,7 +48,7 @@ public class CustomerService {
                             idCardImage.getBytes());
 
             String imagePath =
-                    imageStorageService.saveFile(
+                    imageStorageService.saveIdCard(
                             idCardImage);
 
             customer.setFullName(
@@ -100,7 +100,8 @@ public class CustomerService {
                     idNumber);
 
             return BaseResponse.<String>builder()
-                    .responseCode("1005")
+                    .responseCode(
+                            "1005")
                     .responseMessage(
                             "ID Number Already Exists")
                     .responseId(
@@ -129,4 +130,5 @@ public class CustomerService {
                     .build();
         }
     }
+
 }

@@ -13,8 +13,31 @@ import java.util.UUID;
 @Slf4j
 public class ImageStorageService {
 
-    public String saveFile(
+    private static final String ID_CARD_FOLDER =
+            "idcard";
+
+    private static final String SELFIE_FOLDER =
+            "selfie";
+
+    public String saveIdCard(
             MultipartFile file) {
+
+        return saveFile(
+                file,
+                ID_CARD_FOLDER);
+    }
+
+    public String saveSelfie(
+            MultipartFile file) {
+
+        return saveFile(
+                file,
+                SELFIE_FOLDER);
+    }
+
+    private String saveFile(
+            MultipartFile file,
+            String folderName) {
 
         try {
 
@@ -22,16 +45,14 @@ public class ImageStorageService {
                     Paths.get(
                             System.getProperty("user.dir"),
                             "uploads",
-                            "idcard");
-            log.info(
-                    "step=create_directory path={}",
-                    uploadDir.toAbsolutePath());
+                            folderName);
 
             Files.createDirectories(
                     uploadDir);
 
             log.info(
-                    "step=create_directory path={}",
+                    "step=create_directory folder={} path={}",
+                    folderName,
                     uploadDir.toAbsolutePath());
 
             String fileName =
@@ -47,7 +68,8 @@ public class ImageStorageService {
                     filePath.toFile());
 
             log.info(
-                    "step=image_saved path={}",
+                    "step=image_saved folder={} path={}",
+                    folderName,
                     filePath.toAbsolutePath());
 
             return filePath.toString();
@@ -55,7 +77,8 @@ public class ImageStorageService {
         } catch (Exception ex) {
 
             log.error(
-                    "step=image_save_failed",
+                    "step=image_save_failed folder={}",
+                    folderName,
                     ex);
 
             throw new RuntimeException(
@@ -63,4 +86,5 @@ public class ImageStorageService {
                     ex);
         }
     }
+
 }

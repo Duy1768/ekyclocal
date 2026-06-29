@@ -19,7 +19,11 @@ public enum ResponseCode {
 
     LIVENESS_FAIL("1004", "Liveness Fail"),
 
-    SYSTEM_ERROR("9999", "System Error");
+    SYSTEM_ERROR("9999", "System Error"),
+
+    CUSTOMER_NOT_FOUND("2001", "Customer Not Found"),
+
+    SELFIE_IMAGE_DUPLICATE_ID_CARD_IMAGE("2002", "Selfie Image Duplicate Id Card Image");
 
     private final String code;
 
