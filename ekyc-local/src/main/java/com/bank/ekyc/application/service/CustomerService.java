@@ -22,7 +22,6 @@ import java.util.UUID;
 public class CustomerService {
 
     private final CustomerDao customerDao;
-
     private final ImageStorageService imageStorageService;
 
     public BaseResponse<String> createCustomer(
@@ -37,8 +36,7 @@ public class CustomerService {
             log.info(
                     "step=service_started operation=create_customer");
 
-            Customer customer =
-                    new Customer();
+            Customer customer = new Customer();
 
             customer.setCustomerCode(
                     UUID.randomUUID().toString());
@@ -48,32 +46,18 @@ public class CustomerService {
                             idCardImage.getBytes());
 
             String imagePath =
-                    imageStorageService.saveFile(
+                    imageStorageService.saveIdCard(
                             idCardImage);
 
-            customer.setFullName(
-                    fullName);
+            customer.setFullName(fullName);
+            customer.setIdNumber(idNumber);
+            customer.setPhone(phone);
+            customer.setEmail(email);
+            customer.setIdCardImage(imagePath);
+            customer.setImageChecksum(imageChecksum);
+            customer.setCreatedTime(LocalDateTime.now());
 
-            customer.setIdNumber(
-                    idNumber);
-
-            customer.setPhone(
-                    phone);
-
-            customer.setEmail(
-                    email);
-
-            customer.setIdCardImage(
-                    imagePath);
-
-            customer.setImageChecksum(
-                    imageChecksum);
-
-            customer.setCreatedTime(
-                    LocalDateTime.now());
-
-            customerDao.insert(
-                    customer);
+            customerDao.insert(customer);
 
             log.info(
                     "step=service_completed operation=create_customer customerCode={}",
@@ -85,12 +69,10 @@ public class CustomerService {
                     .responseMessage(
                             ResponseCode.SUCCESS.getMessage())
                     .responseId(
-                            MDC.get(
-                                    HeaderConstant.MDC_REQUEST_ID))
+                            MDC.get(HeaderConstant.MDC_REQUEST_ID))
                     .requestTime(
                             LocalDateTime.now().toString())
-                    .data(
-                            customer.getCustomerCode())
+                    .data(customer.getCustomerCode())
                     .build();
 
         } catch (DuplicateKeyException ex) {
@@ -101,11 +83,9 @@ public class CustomerService {
 
             return BaseResponse.<String>builder()
                     .responseCode("1005")
-                    .responseMessage(
-                            "ID Number Already Exists")
+                    .responseMessage("ID Number Already Exists")
                     .responseId(
-                            MDC.get(
-                                    HeaderConstant.MDC_REQUEST_ID))
+                            MDC.get(HeaderConstant.MDC_REQUEST_ID))
                     .requestTime(
                             LocalDateTime.now().toString())
                     .build();
@@ -122,8 +102,7 @@ public class CustomerService {
                     .responseMessage(
                             ResponseCode.SYSTEM_ERROR.getMessage())
                     .responseId(
-                            MDC.get(
-                                    HeaderConstant.MDC_REQUEST_ID))
+                            MDC.get(HeaderConstant.MDC_REQUEST_ID))
                     .requestTime(
                             LocalDateTime.now().toString())
                     .build();

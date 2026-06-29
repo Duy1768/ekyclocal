@@ -10,10 +10,15 @@ public class BusinessException
     public BusinessException(
             ResponseCode responseCode) {
 
-        this.responseCode = responseCode;
+        super(
+                responseCode.getMessage());
+
+        this.responseCode =
+                responseCode;
     }
 
     public ResponseCode getResponseCode() {
+
         return responseCode;
     }
 }

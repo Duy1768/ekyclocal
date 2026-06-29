@@ -9,7 +9,7 @@ public class CustomerRequest {
 
     private String idNumber;
 
-    //private String idCardImage;
+    private String idCardImage;
 
     private String phone;
 
