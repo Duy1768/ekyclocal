@@ -101,9 +101,9 @@ public class CustomerService {
 
             return BaseResponse.<String>builder()
                     .responseCode(
-                            "1005")
+                            ResponseCode.ID_NUMBER_ALREADY_EXISTS.getCode())
                     .responseMessage(
-                            "ID Number Already Exists")
+                            ResponseCode.ID_NUMBER_ALREADY_EXISTS.getMessage())
                     .responseId(
                             MDC.get(
                                     HeaderConstant.MDC_REQUEST_ID))

@@ -32,11 +32,34 @@ import java.time.LocalDateTime;
 public class SignatureValidationFilter
         extends OncePerRequestFilter {
 
+    private static final String CUSTOMER_URI = "/api/v1/customer";
+
+    private static final String FACE_COMPARE_URI =
+            "/api/v1/customer/face-compare";
+
+    private static final String LIVENESS_URI =
+            "/api/v1/customer/liveness";
+
     private final SignatureProperties signatureProperties;
 
     private final ObjectMapper objectMapper;
 
     private final MultipartResolver multipartResolver;
+
+    @Override
+    protected boolean shouldNotFilter(
+            HttpServletRequest request) {
+
+        if (!"POST".equalsIgnoreCase(request.getMethod())) {
+            return true;
+        }
+
+        String uri = request.getRequestURI();
+
+        return !CUSTOMER_URI.equals(uri)
+                && !FACE_COMPARE_URI.equals(uri)
+                && !LIVENESS_URI.equals(uri);
+    }
 
     @Override
     protected void doFilterInternal(
@@ -45,83 +68,100 @@ public class SignatureValidationFilter
             FilterChain filterChain)
             throws ServletException, IOException {
 
-        String requestId =
-                request.getHeader(
-                        HeaderConstant.REQUEST_ID);
+        HttpServletRequest requestToUse = request;
 
-        String requestDateTime =
-                request.getHeader(
-                        HeaderConstant.REQUEST_TIME);
+        MultipartHttpServletRequest multipartRequest = null;
 
-        String signature =
-                request.getHeader(
-                        HeaderConstant.JWS_SIGNATURE);
-
-        if (requestId == null ||
-                requestId.isBlank() ||
-                requestDateTime == null ||
-                requestDateTime.isBlank() ||
-                signature == null ||
-                signature.isBlank()) {
-
-            log.warn(
-                    "step=signature_validation_failed reason=missing_header");
-
-            writeErrorResponse(
-                    response,
-                    ResponseCode.MISSING_HEADER);
-
-            return;
+        if (multipartResolver.isMultipart(request)) {
+            multipartRequest =
+                    multipartResolver.resolveMultipart(request);
+            requestToUse = multipartRequest;
         }
 
-        String body =
-                buildRequestBody(
-                        request);
+        try {
+            String requestId =
+                    requestToUse.getHeader(
+                            HeaderConstant.REQUEST_ID);
 
-        String plainText =
-                body +
-                        requestId +
-                        requestDateTime;
+            String requestDateTime =
+                    requestToUse.getHeader(
+                            HeaderConstant.REQUEST_TIME);
 
-        String generatedSignature =
-                HmacUtil.sign(
-                        plainText,
-                        signatureProperties.getSecretKey());
+            String signature =
+                    requestToUse.getHeader(
+                            HeaderConstant.JWS_SIGNATURE);
 
-        log.info(
-                "body={}",
-                body);
+            if (requestId == null ||
+                    requestId.isBlank() ||
+                    requestDateTime == null ||
+                    requestDateTime.isBlank() ||
+                    signature == null ||
+                    signature.isBlank()) {
 
-        log.info(
-                "plainText={}",
-                plainText);
+                log.warn(
+                        "step=signature_validation_failed reason=missing_header");
 
-        log.info(
-                "generatedSignature={}",
-                generatedSignature);
+                writeErrorResponse(
+                        response,
+                        ResponseCode.MISSING_HEADER);
 
-        log.info(
-                "receivedSignature={}",
-                signature);
+                return;
+            }
 
-        if (!generatedSignature.equals(signature)) {
+            String body =
+                    buildRequestBody(
+                            requestToUse);
 
-            log.warn(
-                    "step=signature_validation_failed reason=invalid_signature");
+            String plainText =
+                    body +
+                            requestId +
+                            requestDateTime;
 
-            writeErrorResponse(
-                    response,
-                    ResponseCode.INVALID_SIGNATURE);
+            String generatedSignature =
+                    HmacUtil.sign(
+                            plainText,
+                            signatureProperties.getSecretKey());
 
-            return;
+            log.info(
+                    "body={}",
+                    body);
+
+            log.info(
+                    "plainText={}",
+                    plainText);
+
+            log.info(
+                    "generatedSignature={}",
+                    generatedSignature);
+
+            log.info(
+                    "receivedSignature={}",
+                    signature);
+
+            if (!generatedSignature.equals(signature)) {
+
+                log.warn(
+                        "step=signature_validation_failed reason=invalid_signature");
+
+                writeErrorResponse(
+                        response,
+                        ResponseCode.INVALID_SIGNATURE);
+
+                return;
+            }
+
+            log.info(
+                    "step=signature_validation_success");
+
+            filterChain.doFilter(
+                    requestToUse,
+                    response);
+        } finally {
+            if (multipartRequest != null) {
+                multipartResolver.cleanupMultipart(
+                        multipartRequest);
+            }
         }
-
-        log.info(
-                "step=signature_validation_success");
-
-        filterChain.doFilter(
-                request,
-                response);
     }
 
     private String buildRequestBody(

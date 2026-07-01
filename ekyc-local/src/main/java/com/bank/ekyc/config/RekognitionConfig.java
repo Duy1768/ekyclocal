@@ -13,7 +13,7 @@ public class RekognitionConfig {
 
         return RekognitionClient.builder()
                 .region(
-                        Region.AP_SOUTHEAST_1)
+                        Region.US_EAST_1)
                 .build();
     }
 }

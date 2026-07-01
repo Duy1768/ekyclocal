@@ -31,8 +31,7 @@ public class FaceCompareController {
 
             @RequestParam MultipartFile selfieImage) {
 
-        long startTime =
-                System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
 
         log.info(
                 "step=controller_request_received operation=face_compare customerCode={}",
@@ -50,19 +49,13 @@ public class FaceCompareController {
                 data.getCompareStatus(),
                 System.currentTimeMillis() - startTime);
 
-        return BaseResponse
-                .<FaceCompareResponse>builder()
-                .responseCode(
-                        ResponseCode.SUCCESS.getCode())
-                .responseMessage(
-                        ResponseCode.SUCCESS.getMessage())
+        return BaseResponse.<FaceCompareResponse>builder()
+                .responseCode(ResponseCode.SUCCESS.getCode())
+                .responseMessage(ResponseCode.SUCCESS.getMessage())
                 .responseId(
-                        MDC.get(
-                                HeaderConstant.MDC_REQUEST_ID))
-                .requestTime(
-                        LocalDateTime.now().toString())
-                .data(
-                        data)
+                        MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                .requestTime(LocalDateTime.now().toString())
+                .data(data)
                 .build();
     }
 }

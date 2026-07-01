@@ -6,6 +6,7 @@ import com.bank.ekyc.common.exception.BusinessException;
 import com.bank.ekyc.common.util.ChecksumUtil;
 import com.bank.ekyc.domain.entity.Customer;
 import com.bank.ekyc.domain.enums.CompareStatus;
+import com.bank.ekyc.infrastructure.aws.AwsRekognitionAdapter;
 import com.bank.ekyc.infrastructure.dao.CustomerDao;
 import com.bank.ekyc.infrastructure.dao.FaceCompareHistoryDao;
 import com.bank.ekyc.presentation.response.FaceCompareResponse;
@@ -14,39 +15,39 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import software.amazon.awssdk.core.SdkBytes;
-import software.amazon.awssdk.services.rekognition.RekognitionClient;
-import software.amazon.awssdk.services.rekognition.model.CompareFacesRequest;
-import software.amazon.awssdk.services.rekognition.model.CompareFacesResponse;
-import software.amazon.awssdk.services.rekognition.model.Image;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Base64;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class FaceCompareService {
 
+    private static final double MATCH_THRESHOLD = 95D;
+
     private final CustomerDao customerDao;
 
     private final FaceCompareHistoryDao faceCompareHistoryDao;
 
-    private final RekognitionClient rekognitionClient;
+    private final AwsRekognitionAdapter awsRekognitionAdapter;
 
     private final ImageStorageService imageStorageService;
+
+    private final LivenessService livenessService;
 
     public FaceCompareResponse compareFace(
             String customerCode,
             MultipartFile selfieImage) {
 
-        long startTime =
-                System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
 
         try {
 
             log.info(
-                    "step=face_compare_started customerCode={}",
+                    "step=face_compare_started requestId={} customerCode={}",
+                    MDC.get(HeaderConstant.MDC_REQUEST_ID),
                     customerCode);
 
             Customer customer =
@@ -81,69 +82,51 @@ public class FaceCompareService {
                     Path.of(
                             customer.getIdCardImage());
 
-            if (!Files.exists(idCardPath)) {
+            if (!Files.exists(
+                    idCardPath)) {
 
-                throw new RuntimeException(
-                        "Id Card Image Not Found: "
-                                + idCardPath);
+                throw new BusinessException(
+                        ResponseCode.SYSTEM_ERROR);
             }
 
             byte[] idCardBytes =
                     Files.readAllBytes(
                             idCardPath);
 
+            String idCardImageBase64 =
+                    Base64.getEncoder()
+                            .encodeToString(
+                                    idCardBytes);
+
+            String selfieImageBase64 =
+                    Base64.getEncoder()
+                            .encodeToString(
+                                    selfieBytes);
+
             log.info(
-                    "step=rekognition_compare_started customerCode={} imagePath={}",
-                    customerCode,
-                    customer.getIdCardImage());
-
-            CompareFacesRequest request =
-                    CompareFacesRequest.builder()
-                            .sourceImage(
-                                    Image.builder()
-                                            .bytes(
-                                                    SdkBytes.fromByteArray(
-                                                            idCardBytes))
-                                            .build())
-                            .targetImage(
-                                    Image.builder()
-                                            .bytes(
-                                                    SdkBytes.fromByteArray(
-                                                            selfieBytes))
-                                            .build())
-                            .similarityThreshold(
-                                    0F)
-                            .build();
-
-            CompareFacesResponse response =
-                    rekognitionClient.compareFaces(
-                            request);
+                    "step=compare_faces_call_aws customerCode={}",
+                    customerCode);
 
             double similarity =
-                    response.faceMatches()
-                            .stream()
-                            .findFirst()
-                            .map(
-                                    faceMatch ->
-                                            (double) faceMatch.similarity())
-                            .orElse(0D);
+                    awsRekognitionAdapter.compareFaces(
+                            idCardBytes,
+                            selfieBytes);
 
-            CompareStatus compareStatus;
+            CompareStatus compareStatus =
+                    similarity >= MATCH_THRESHOLD
+                            ? CompareStatus.MATCH
+                            : CompareStatus.NOT_MATCH;
 
-            if (similarity >= 95D) {
+            String ekycStatus;
+            String livenessSessionId = null;
 
-                compareStatus =
-                        CompareStatus.MATCH;
+            if (compareStatus == CompareStatus.MATCH) {
 
-            } else if (similarity >= 80D) {
-
-                compareStatus =
-                        CompareStatus.REVIEW;
-
+                livenessSessionId =
+                        livenessService.createSession();
+                ekycStatus = "PENDING_LIVENESS";
             } else {
-
-                compareStatus =
-                        CompareStatus.NOT_MATCH;
+                ekycStatus = "REJECTED";
             }
 
             faceCompareHistoryDao.insert(
@@ -153,26 +136,26 @@ public class FaceCompareService {
                     similarity,
                     compareStatus.name());
 
-            long durationMs =
-                    System.currentTimeMillis()
-                            - startTime;
+            long durationMs = System.currentTimeMillis() - startTime;
 
             log.info(
-                    "step=face_compare_completed requestId={} customerCode={} similarity={} compareStatus={} durationMs={}",
-                    MDC.get(
-                            HeaderConstant.MDC_REQUEST_ID),
+                    "step=face_compare_completed requestId={} customerCode={} similarity={} compareStatus={} ekycStatus={} livenessSessionId={} durationMs={}",
+                    MDC.get(HeaderConstant.MDC_REQUEST_ID),
                     customerCode,
                     similarity,
                     compareStatus,
+                    ekycStatus,
+                    livenessSessionId,
                     durationMs);
 
             return FaceCompareResponse.builder()
-                    .customerCode(
-                            customerCode)
-                    .similarity(
-                            similarity)
-                    .compareStatus(
-                            compareStatus.name())
+                    .customerCode(customerCode)
+                    .similarity(similarity)
+                    .compareStatus(compareStatus.name())
+                    .ekycStatus(ekycStatus)
+                    .livenessSessionId(livenessSessionId)
+                    .idCardImageBase64(idCardImageBase64)
+                    .selfieImageBase64(selfieImageBase64)
                     .build();
 
         } catch (BusinessException ex) {
@@ -191,5 +174,4 @@ public class FaceCompareService {
                     ex);
         }
     }
-
 }

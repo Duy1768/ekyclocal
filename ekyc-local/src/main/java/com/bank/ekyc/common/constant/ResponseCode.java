@@ -13,11 +13,19 @@ public enum ResponseCode {
 
     INVALID_REQUEST("1002", "Invalid Request"),
 
-    MISSING_HEADER("1002", "Missing Header"),
+    MISSING_HEADER("1009", "Missing Header"),
 
     FACE_NOT_MATCH("1003", "Face Not Match"),
 
     LIVENESS_FAIL("1004", "Liveness Fail"),
+
+    ID_NUMBER_ALREADY_EXISTS("1005", "ID Number Already Exists"),
+
+    LIVENESS_SESSION_NOT_READY("1006", "Liveness Session Not Ready"),
+
+    LIVENESS_SESSION_NOT_FOUND("1007", "Liveness Session Not Found"),
+
+    AWS_REKOGNITION_ERROR("1008", "AWS Rekognition Error"),
 
     SYSTEM_ERROR("9999", "System Error"),
 

@@ -16,4 +16,12 @@ public class FaceCompareResponse {
     private Double similarity;
 
     private String compareStatus;
+
+    private String ekycStatus;
+
+    private String livenessSessionId;
+
+    private String idCardImageBase64;
+
+    private String selfieImageBase64;
 }

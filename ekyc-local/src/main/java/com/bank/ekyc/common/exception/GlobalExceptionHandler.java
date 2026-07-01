@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import software.amazon.awssdk.services.rekognition.model.RekognitionException;
 
 import java.time.LocalDateTime;
 
@@ -26,17 +27,23 @@ public class GlobalExceptionHandler {
                 responseCode.getCode(),
                 responseCode.getMessage());
 
-        return BaseResponse.<Void>builder()
-                .responseCode(
-                        responseCode.getCode())
-                .responseMessage(
-                        responseCode.getMessage())
-                .responseId(
-                        MDC.get(
-                                HeaderConstant.MDC_REQUEST_ID))
-                .requestTime(
-                        LocalDateTime.now().toString())
-                .build();
+        return buildErrorResponse(responseCode);
+    }
+
+    @ExceptionHandler(RekognitionException.class)
+    public BaseResponse<Void> handleRekognitionException(
+            RekognitionException exception) {
+
+        log.error(
+                "step=aws_rekognition_exception_handled errorCode={} errorMessage={}",
+                exception.awsErrorDetails() != null
+                        ? exception.awsErrorDetails().errorCode()
+                        : "N/A",
+                exception.getMessage(),
+                exception);
+
+        return buildErrorResponse(
+                ResponseCode.AWS_REKOGNITION_ERROR);
     }
 
     @ExceptionHandler(Exception.class)
@@ -48,16 +55,19 @@ public class GlobalExceptionHandler {
                 exception.getClass().getSimpleName(),
                 exception);
 
+        return buildErrorResponse(
+                ResponseCode.SYSTEM_ERROR);
+    }
+
+    private BaseResponse<Void> buildErrorResponse(
+            ResponseCode responseCode) {
+
         return BaseResponse.<Void>builder()
-                .responseCode(
-                        ResponseCode.SYSTEM_ERROR.getCode())
-                .responseMessage(
-                        ResponseCode.SYSTEM_ERROR.getMessage())
+                .responseCode(responseCode.getCode())
+                .responseMessage(responseCode.getMessage())
                 .responseId(
-                        MDC.get(
-                                HeaderConstant.MDC_REQUEST_ID))
-                .requestTime(
-                        LocalDateTime.now().toString())
+                        MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                .requestTime(LocalDateTime.now().toString())
                 .build();
     }
 }
