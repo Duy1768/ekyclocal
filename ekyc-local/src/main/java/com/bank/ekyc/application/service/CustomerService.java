@@ -33,8 +33,7 @@ public class CustomerService {
 
         try {
 
-            log.info(
-                    "step=service_started operation=create_customer");
+            log.info("step=service_started operation=create_customer");
 
             Customer customer = new Customer();
 
@@ -42,8 +41,7 @@ public class CustomerService {
                     UUID.randomUUID().toString());
 
             String imageChecksum =
-                    DigestUtils.sha256Hex(
-                            idCardImage.getBytes());
+                    DigestUtils.sha256Hex(idCardImage.getBytes());
 
             String imagePath =
                     imageStorageService.saveIdCard(
@@ -59,35 +57,27 @@ public class CustomerService {
 
             customerDao.insert(customer);
 
-            log.info(
-                    "step=service_completed operation=create_customer customerCode={}",
+            log.info("step=service_completed operation=create_customer customerCode={}",
                     customer.getCustomerCode());
 
             return BaseResponse.<String>builder()
-                    .responseCode(
-                            ResponseCode.SUCCESS.getCode())
-                    .responseMessage(
-                            ResponseCode.SUCCESS.getMessage())
-                    .responseId(
-                            MDC.get(HeaderConstant.MDC_REQUEST_ID))
-                    .requestTime(
-                            LocalDateTime.now().toString())
+                    .responseCode(ResponseCode.SUCCESS.getCode())
+                    .responseMessage(ResponseCode.SUCCESS.getMessage())
+                    .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                    .requestTime(LocalDateTime.now().toString())
                     .data(customer.getCustomerCode())
                     .build();
 
         } catch (DuplicateKeyException ex) {
 
-            log.warn(
-                    "step=service_failed reason=duplicate_id_number idNumber={}",
+            log.warn("step=service_failed reason=duplicate_id_number idNumber={}",
                     idNumber);
 
             return BaseResponse.<String>builder()
                     .responseCode("1005")
                     .responseMessage("ID Number Already Exists")
-                    .responseId(
-                            MDC.get(HeaderConstant.MDC_REQUEST_ID))
-                    .requestTime(
-                            LocalDateTime.now().toString())
+                    .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                    .requestTime(LocalDateTime.now().toString())
                     .build();
 
         } catch (Exception ex) {
@@ -97,14 +87,10 @@ public class CustomerService {
                     ex);
 
             return BaseResponse.<String>builder()
-                    .responseCode(
-                            ResponseCode.SYSTEM_ERROR.getCode())
-                    .responseMessage(
-                            ResponseCode.SYSTEM_ERROR.getMessage())
-                    .responseId(
-                            MDC.get(HeaderConstant.MDC_REQUEST_ID))
-                    .requestTime(
-                            LocalDateTime.now().toString())
+                    .responseCode(ResponseCode.SYSTEM_ERROR.getCode())
+                    .responseMessage(ResponseCode.SYSTEM_ERROR.getMessage())
+                    .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                    .requestTime(LocalDateTime.now().toString())
                     .build();
         }
     }

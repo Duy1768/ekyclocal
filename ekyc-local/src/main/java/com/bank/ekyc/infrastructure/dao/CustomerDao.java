@@ -53,8 +53,7 @@ public class CustomerDao {
                             customer.getCreatedTime()
                     );
 
-            log.info(
-                    "step=database_insert_completed entity=customer customerCode={} affectedRows={}",
+            log.info("step=database_insert_completed entity=customer customerCode={} affectedRows={}",
                     customer.getCustomerCode(),
                     insertedRows);
 
@@ -62,8 +61,7 @@ public class CustomerDao {
 
         } catch (Exception ex) {
 
-            log.error(
-                    "step=database_insert_failed entity=customer customerCode={} error={}",
+            log.error("step=database_insert_failed entity=customer customerCode={} error={}",
                     customer.getCustomerCode(),
                     ex.getMessage(),
                     ex);

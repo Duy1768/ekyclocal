@@ -60,8 +60,7 @@ public class ImageStorageService {
 
             file.transferTo(filePath.toFile());
 
-            log.info(
-                    "step=image_saved folder={} path={}",
+            log.info("step=image_saved folder={} path={}",
                     folderName,
                     filePath.toAbsolutePath());
 
@@ -69,8 +68,7 @@ public class ImageStorageService {
 
         } catch (Exception ex) {
 
-            log.error(
-                    "step=image_save_failed folder={}",
+            log.error("step=image_save_failed folder={}",
                     folderName,
                     ex);
 
