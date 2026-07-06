@@ -1,3 +1,4 @@
+
 package com.bank.ekyc.config;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -71,4 +72,76 @@ public class HikariConfiguration {
         return new HikariDataSource(config);
     }
 
+}
+=======
+package com.bank.ekyc.config;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
+
+@Configuration
+public class HikariConfiguration {
+
+    @Value("${spring.datasource.url}")
+    private String url;
+
+    @Value("${spring.datasource.username}")
+    private String username;
+
+    @Value("${spring.datasource.password}")
+    private String password;
+
+    @Value("${spring.datasource.hikari.pool-name}")
+    private String poolName;
+
+    @Value("${spring.datasource.hikari.minimum-idle}")
+    private int minimumIdle;
+
+    @Value("${spring.datasource.hikari.maximum-pool-size}")
+    private int maximumPoolSize;
+
+    @Value("${spring.datasource.hikari.idle-timeout}")
+    private long idleTimeout;
+
+    @Value("${spring.datasource.hikari.max-lifetime}")
+    private long maxLifetime;
+
+    @Value("${spring.datasource.hikari.connection-timeout}")
+    private long connectionTimeout;
+
+    @Bean
+    public DataSource dataSource() {
+        System.out.println("CUSTOM DATASOURCE");
+
+        HikariConfig config = new HikariConfig();
+
+        config.setDriverClassName("org.postgresql.Driver");
+        config.setJdbcUrl(url);
+        config.setUsername(username);
+        config.setPassword(password);
+
+        config.setPoolName(poolName);
+        config.setMinimumIdle(minimumIdle);
+        config.setMaximumPoolSize(maximumPoolSize);
+
+        config.setIdleTimeout(idleTimeout);
+        config.setMaxLifetime(maxLifetime);
+        config.setConnectionTimeout(connectionTimeout);
+
+        config.setConnectionTestQuery("SELECT 1");
+        config.setAutoCommit(true);
+
+        config.setValidationTimeout(5000);
+        config.setInitializationFailTimeout(10000);
+
+        config.setLeakDetectionThreshold(60000);
+        config.setRegisterMbeans(true);
+
+        return new HikariDataSource(config);
+    }
 }
