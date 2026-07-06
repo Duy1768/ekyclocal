@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -14,128 +15,102 @@ public class CustomerDao {
 
     private final JdbcTemplate jdbcTemplate;
 
+    private static final String INSERT_CUSTOMER_SQL = """
+        INSERT INTO customer
+        (
+            customer_code,
+            full_name,
+            id_number,
+            idcard_image,
+            image_checksum,
+            phone,
+            email,
+            created_time
+        )
+        VALUES
+        (
+            ?, ?, ?, ?, ?, ?, ?, ?
+        )
+        """;
+
+    private static final String FIND_BY_CUSTOMER_CODE_SQL = """
+        SELECT
+            id,
+            customer_code,
+            full_name,
+            id_number,
+            idcard_image,
+            image_checksum,
+            phone,
+            email,
+            created_time
+        FROM customer
+        WHERE customer_code = ?
+        """;
+
+    private static final RowMapper<Customer> CUSTOMER_ROW_MAPPER =
+            (rs, rowNum) -> {
+
+                Customer customer = new Customer();
+
+                customer.setId(rs.getLong("id"));
+                customer.setCustomerCode(rs.getString("customer_code"));
+                customer.setFullName(rs.getString("full_name"));
+                customer.setIdNumber(rs.getString("id_number"));
+                customer.setIdCardImage(rs.getString("idcard_image"));
+                customer.setImageChecksum(rs.getString("image_checksum"));
+                customer.setPhone(rs.getString("phone"));
+                customer.setEmail(rs.getString("email"));
+
+                if (rs.getTimestamp("created_time") != null) {
+                    customer.setCreatedTime(
+                            rs.getTimestamp("created_time").toLocalDateTime());
+                }
+
+                return customer;
+            };
+
     public int insert(Customer customer) {
 
-        try {
+        log.info(
+                "step=database_insert_started table=customer customerCode={}",
+                customer.getCustomerCode());
 
-            log.info(
-                    "step=database_insert_started entity=customer customerCode={}",
-                    customer.getCustomerCode());
+        int affectedRows = jdbcTemplate.update(
+                INSERT_CUSTOMER_SQL,
+                customer.getCustomerCode(),
+                customer.getFullName(),
+                customer.getIdNumber(),
+                customer.getIdCardImage(),
+                customer.getImageChecksum(),
+                customer.getPhone(),
+                customer.getEmail(),
+                customer.getCreatedTime()
+        );
 
-            String sql = """
-                INSERT INTO customer
-                (
-                    customer_code,
-                    full_name,
-                    id_number,
-                    idcard_image,
-                    image_checksum,
-                    phone,
-                    email,
-                    created_time
-                )
-                VALUES
-                (
-                    ?, ?, ?, ?, ?, ?, ?, ?
-                )
-                """;
+        log.info(
+                "step=database_insert_completed table=customer customerCode={} affectedRows={}",
+                customer.getCustomerCode(),
+                affectedRows);
 
-            int insertedRows =
-                    jdbcTemplate.update(
-                            sql,
-                            customer.getCustomerCode(),
-                            customer.getFullName(),
-                            customer.getIdNumber(),
-                            customer.getIdCardImage(),
-                            customer.getImageChecksum(),
-                            customer.getPhone(),
-                            customer.getEmail(),
-                            customer.getCreatedTime()
-                    );
-
-            log.info("step=database_insert_completed entity=customer customerCode={} affectedRows={}",
-                    customer.getCustomerCode(),
-                    insertedRows);
-
-            return insertedRows;
-
-        } catch (Exception ex) {
-
-            log.error("step=database_insert_failed entity=customer customerCode={} error={}",
-                    customer.getCustomerCode(),
-                    ex.getMessage(),
-                    ex);
-
-            throw ex;
-        }
+        return affectedRows;
     }
 
-    public Customer findByCustomerCode(
-            String customerCode) {
+    public Customer findByCustomerCode(String customerCode) {
+
+        log.info(
+                "step=database_query_started table=customer customerCode={}",
+                customerCode);
 
         try {
 
-            log.info(
-                    "step=database_query_started entity=customer customerCode={}",
+            Customer customer = jdbcTemplate.queryForObject(
+                    FIND_BY_CUSTOMER_CODE_SQL,
+                    CUSTOMER_ROW_MAPPER,
                     customerCode);
 
-            String sql = """
-                SELECT
-                    id,
-                    customer_code,
-                    full_name,
-                    id_number,
-                    idcard_image,
-                    image_checksum,
-                    phone,
-                    email,
-                    created_time
-                FROM customer
-                WHERE customer_code = ?
-                """;
-
-            Customer customer =
-                    jdbcTemplate.queryForObject(
-                            sql,
-                            (rs, rowNum) -> {
-
-                                Customer result =
-                                        new Customer();
-
-                                result.setId(
-                                        rs.getLong("id"));
-
-                                result.setCustomerCode(
-                                        rs.getString("customer_code"));
-
-                                result.setFullName(
-                                        rs.getString("full_name"));
-
-                                result.setIdNumber(
-                                        rs.getString("id_number"));
-
-                                result.setIdCardImage(
-                                        rs.getString("idcard_image"));
-
-                                result.setImageChecksum(
-                                        rs.getString("image_checksum"));
-
-                                result.setPhone(
-                                        rs.getString("phone"));
-
-                                result.setEmail(
-                                        rs.getString("email"));
-
-                                result.setCreatedTime(
-                                        rs.getTimestamp("created_time")
-                                                .toLocalDateTime());
-
-                                return result;
-                            },
-                            customerCode);
-
             log.info(
-                    "step=database_query_completed entity=customer customerCode={}",
+                    "step=database_query_completed table=customer customerCode={}",
                     customerCode);
 
             return customer;
@@ -143,20 +118,10 @@ public class CustomerDao {
         } catch (EmptyResultDataAccessException ex) {
 
             log.warn(
-                    "step=database_query_not_found entity=customer customerCode={}",
+                    "step=database_query_not_found table=customer customerCode={}",
                     customerCode);
 
             return null;
-
-        } catch (Exception ex) {
-
-            log.error(
-                    "step=database_query_failed entity=customer customerCode={} error={}",
-                    customerCode,
-                    ex.getMessage(),
-                    ex);
-
-            throw ex;
         }
     }
 

@@ -19,8 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartResolver;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -34,6 +32,22 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
     private final SignatureProperties signatureProperties;
     private final ObjectMapper objectMapper;
 
+    /**
+     * Chỉ kiểm tra Signature đối với API.
+     * Bỏ qua tất cả static resources.
+     */
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+
+        String uri = request.getRequestURI();
+
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            return true;
+        }
+
+        return !uri.startsWith("/api/");
+    }
+
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
@@ -41,11 +55,17 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
             FilterChain filterChain)
             throws ServletException, IOException {
 
-        String requestId = request.getHeader(HeaderConstant.REQUEST_ID);
+        String requestId = firstNonBlank(
+                request.getHeader(HeaderConstant.REQUEST_ID),
+                request.getParameter("requestId"));
 
-        String requestDateTime = request.getHeader(HeaderConstant.REQUEST_TIME);
+        String requestDateTime = firstNonBlank(
+                request.getHeader(HeaderConstant.REQUEST_TIME),
+                request.getParameter("requestDateTime"));
 
-        String signature = request.getHeader(HeaderConstant.JWS_SIGNATURE);
+        String signature = firstNonBlank(
+                request.getHeader(HeaderConstant.JWS_SIGNATURE),
+                request.getParameter("jwsSignature"));
 
         if (requestId == null
                 || requestId.isBlank()
@@ -96,8 +116,7 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
                 response);
     }
 
-    private String buildRequestBody(
-            HttpServletRequest request) {
+    private String buildRequestBody(HttpServletRequest request) {
 
         String uri = request.getRequestURI();
 
@@ -119,7 +138,27 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
                     + request.getParameter("customerCode");
         }
 
+        if ("/api/v1/customer/liveness".equals(uri)) {
+
+            return "";
+        }
+
         return "";
+    }
+
+    private String firstNonBlank(
+            String primary,
+            String fallback) {
+
+        if (primary != null && !primary.isBlank()) {
+            return primary;
+        }
+
+        if (fallback != null && !fallback.isBlank()) {
+            return fallback;
+        }
+
+        return null;
     }
 
     private void writeErrorResponse(

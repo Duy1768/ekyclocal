@@ -18,6 +18,7 @@ import software.amazon.awssdk.services.rekognition.model.CompareFacesResponse;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Base64;
 
 @Service
 @Slf4j
@@ -73,6 +74,22 @@ public class FaceCompareService {
             byte[] idCardBytes =
                     Files.readAllBytes(idCardPath);
 
+            String idCardImageBase64 =
+                    Base64.getEncoder().encodeToString(idCardBytes);
+            String idCardImageMimeType =
+                    Files.probeContentType(idCardPath);
+            if (idCardImageMimeType == null || idCardImageMimeType.isBlank()) {
+                idCardImageMimeType = "image/jpg";
+            }
+
+            String selfieImageMimeType =
+                    selfieImage.getContentType();
+            if (selfieImageMimeType == null || selfieImageMimeType.isBlank()) {
+                selfieImageMimeType = "image/jpg";
+            }
+            String selfieImageBase64 =
+                    Base64.getEncoder().encodeToString(selfieBytes);
+
             log.info(
                     "step=rekognition_compare_started customerCode={} imagePath={}",
                     customerCode,
@@ -120,6 +137,10 @@ public class FaceCompareService {
                     .customerCode(customerCode)
                     .similarity(similarity)
                     .compareStatus(compareStatus.name())
+                    .idCardImageBase64(idCardImageBase64)
+                    .idCardImageMimeType(idCardImageMimeType)
+                    .selfieImageBase64(selfieImageBase64)
+                    .selfieImageMimeType(selfieImageMimeType)
                     .build();
 
         } catch (BusinessException ex) {
