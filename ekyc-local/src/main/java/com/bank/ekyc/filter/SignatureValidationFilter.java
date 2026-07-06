@@ -41,14 +41,11 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
             FilterChain filterChain)
             throws ServletException, IOException {
 
-        String requestId =
-                request.getHeader(HeaderConstant.REQUEST_ID);
+        String requestId = request.getHeader(HeaderConstant.REQUEST_ID);
 
-        String requestDateTime =
-                request.getHeader(HeaderConstant.REQUEST_TIME);
+        String requestDateTime = request.getHeader(HeaderConstant.REQUEST_TIME);
 
-        String signature =
-                request.getHeader(HeaderConstant.JWS_SIGNATURE);
+        String signature = request.getHeader(HeaderConstant.JWS_SIGNATURE);
 
         if (requestId == null
                 || requestId.isBlank()
@@ -57,8 +54,7 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
                 || signature == null
                 || signature.isBlank()) {
 
-            log.warn(
-                    "step=signature_validation_failed reason=missing_header");
+            log.warn("step=signature_validation_failed reason=missing_header");
 
             writeErrorResponse(
                     response,
@@ -84,8 +80,7 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
 
         if (!generatedSignature.equals(signature)) {
 
-            log.warn(
-                    "step=signature_validation_failed reason=invalid_signature");
+            log.warn("step=signature_validation_failed reason=invalid_signature");
 
             writeErrorResponse(
                     response,
@@ -94,8 +89,7 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
             return;
         }
 
-        log.info(
-                "step=signature_validation_success");
+        log.info("step=signature_validation_success");
 
         filterChain.doFilter(
                 request,
@@ -140,8 +134,7 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
                 BaseResponse.<Void>builder()
                         .responseCode(responseCode.getCode())
                         .responseMessage(responseCode.getMessage())
-                        .responseId(
-                                MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                        .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
                         .requestTime(LocalDateTime.now().toString())
                         .build();
 

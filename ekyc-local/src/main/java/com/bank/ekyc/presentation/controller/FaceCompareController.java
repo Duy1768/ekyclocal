@@ -52,8 +52,7 @@ public class FaceCompareController {
         return BaseResponse.<FaceCompareResponse>builder()
                 .responseCode(ResponseCode.SUCCESS.getCode())
                 .responseMessage(ResponseCode.SUCCESS.getMessage())
-                .responseId(
-                        MDC.get(HeaderConstant.MDC_REQUEST_ID))
+                .responseId(MDC.get(HeaderConstant.MDC_REQUEST_ID))
                 .requestTime(LocalDateTime.now().toString())
                 .data(data)
                 .build();

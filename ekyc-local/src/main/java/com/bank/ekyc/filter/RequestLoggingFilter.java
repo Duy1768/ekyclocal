@@ -41,8 +41,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
 
         try {
 
-            log.info(
-                    "step=request_received method={} uri={} remoteAddress={}",
+            log.info("step=request_received method={} uri={} remoteAddress={}",
                     request.getMethod(),
                     request.getRequestURI(),
                     request.getRemoteAddr());
@@ -51,15 +50,13 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
                     request,
                     response);
 
-            log.info(
-                    "step=request_completed status={} durationMs={}",
+            log.info("step=request_completed status={} durationMs={}",
                     response.getStatus(),
                     System.currentTimeMillis() - startTime);
 
         } catch (Exception exception) {
 
-            log.error(
-                    "step=request_failed status={} durationMs={} exceptionType={}",
+            log.error("step=request_failed status={} durationMs={} exceptionType={}",
                     response.getStatus(),
                     System.currentTimeMillis() - startTime,
                     exception.getClass().getSimpleName(),

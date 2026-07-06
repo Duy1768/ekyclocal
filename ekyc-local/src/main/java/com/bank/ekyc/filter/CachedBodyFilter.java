@@ -57,8 +57,7 @@ public class CachedBodyFilter extends OncePerRequestFilter {
             super(request);
 
             this.cachedBody =
-                    StreamUtils.copyToByteArray(
-                            request.getInputStream());
+                    StreamUtils.copyToByteArray(request.getInputStream());
         }
 
         @Override

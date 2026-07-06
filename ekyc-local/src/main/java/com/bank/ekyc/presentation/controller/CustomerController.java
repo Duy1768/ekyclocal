@@ -30,8 +30,7 @@ public class CustomerController {
 
             @RequestParam MultipartFile idCardImage) {
 
-        log.info(
-                "step=controller_request_received operation=create_customer");
+        log.info("step=controller_request_received operation=create_customer");
 
         BaseResponse<String> response =
                 customerService.createCustomer(
@@ -41,8 +40,7 @@ public class CustomerController {
                         email,
                         idCardImage);
 
-        log.info(
-                "step=controller_response_ready operation=create_customer responseCode={}",
+        log.info("step=controller_response_ready operation=create_customer responseCode={}",
                 response.getResponseCode());
 
         return response;
