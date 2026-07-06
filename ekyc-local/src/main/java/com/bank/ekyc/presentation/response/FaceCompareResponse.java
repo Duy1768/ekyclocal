@@ -16,4 +16,12 @@ public class FaceCompareResponse {
     private Double similarity;
 
     private String compareStatus;
+
+    private String idCardImageBase64;
+
+    private String idCardImageMimeType;
+
+    private String selfieImageBase64;
+
+    private String selfieImageMimeType;
 }
