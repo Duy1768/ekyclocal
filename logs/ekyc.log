@@ -1,0 +1,1058 @@
+[2026-07-06T08:49:00.006+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 15303 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T08:49:00.010+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T08:49:00.493+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T08:49:00.499+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T08:49:00.499+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T08:49:00.522+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T08:49:00.523+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 480 ms
+[2026-07-06T08:49:00.570+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T08:49:00.610+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@53d9826f
+[2026-07-06T08:49:00.647+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T08:49:01.008+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T08:49:01.021+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T08:49:01.162+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T08:49:01.167+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.389 seconds (process running for 1.565)
+[2026-07-06T08:55:52.227+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T08:55:52.232+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T08:55:52.245+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T08:55:52.246+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T09:02:19.667+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 15523 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:02:19.669+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:02:19.714+07:00] WARN  [N/A] [AbstractApplicationContext.refresh] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+[2026-07-06T09:02:19.767+07:00] ERROR [N/A] [LoggingFailureAnalysisReporter.report] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web application could not be started as there was no org.springframework.boot.web.servlet.server.ServletWebServerFactory bean defined in the context.
+
+Action:
+
+Check your application's dependencies for a supported servlet web server.
+Check the configured web application type.
+
+[2026-07-06T09:03:26.907+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 15546 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:03:26.908+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:03:27.428+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T09:03:27.436+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T09:03:27.436+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T09:03:27.472+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T09:03:27.472+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 546 ms
+[2026-07-06T09:03:27.529+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T09:03:27.581+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@7df28f1
+[2026-07-06T09:03:27.615+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T09:03:27.975+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T09:03:27.987+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T09:03:28.121+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T09:03:28.126+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.447 seconds (process running for 1.607)
+[2026-07-06T09:06:10.393+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T09:06:10.399+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T09:06:10.409+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T09:06:10.411+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T09:06:12.114+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 15598 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:06:12.115+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:06:12.592+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T09:06:12.598+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T09:06:12.598+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T09:06:12.621+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T09:06:12.621+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 488 ms
+[2026-07-06T09:06:12.668+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T09:06:12.709+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@35c4697c
+[2026-07-06T09:06:12.741+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T09:06:13.090+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T09:06:13.102+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T09:06:13.228+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T09:06:13.234+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.326 seconds (process running for 1.491)
+[2026-07-06T09:08:32.329+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T09:08:32.332+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T09:08:32.343+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T09:08:32.344+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T09:24:38.403+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 15874 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:24:38.404+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:24:38.875+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T09:24:38.881+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T09:24:38.881+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T09:24:38.904+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T09:24:38.904+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 481 ms
+[2026-07-06T09:24:38.951+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T09:24:38.995+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@34208baa
+[2026-07-06T09:24:39.027+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T09:24:39.383+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T09:24:39.395+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T09:24:39.522+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T09:24:39.527+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.35 seconds (process running for 1.588)
+[2026-07-06T09:24:46.668+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-07-06T09:24:46.668+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Initializing Servlet 'dispatcherServlet'
+[2026-07-06T09:24:46.669+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Completed initialization in 1 ms
+[2026-07-06T09:24:46.673+07:00] INFO  [dcf40138-555e-4faf-a563-d9ee46f25e0a] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:24:46.674+07:00] WARN  [dcf40138-555e-4faf-a563-d9ee46f25e0a] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:24:46.696+07:00] INFO  [dcf40138-555e-4faf-a563-d9ee46f25e0a] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=23
+[2026-07-06T09:24:47.039+07:00] INFO  [c9375c07-e3cb-4e3d-8467-f0bad746c927] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:24:47.039+07:00] WARN  [c9375c07-e3cb-4e3d-8467-f0bad746c927] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:24:47.041+07:00] INFO  [c9375c07-e3cb-4e3d-8467-f0bad746c927] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=2
+[2026-07-06T09:30:06.232+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T09:30:06.237+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T09:30:06.249+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T09:30:06.250+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T09:30:07.793+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 15965 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:30:07.794+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:30:08.291+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T09:30:08.298+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T09:30:08.298+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T09:30:08.320+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T09:30:08.320+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 493 ms
+[2026-07-06T09:30:08.366+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T09:30:08.414+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@1d0cac30
+[2026-07-06T09:30:08.447+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T09:30:08.795+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T09:30:08.807+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T09:30:08.932+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T09:30:08.938+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.647 seconds (process running for 1.883)
+[2026-07-06T09:30:14.461+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-07-06T09:30:14.461+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Initializing Servlet 'dispatcherServlet'
+[2026-07-06T09:30:14.463+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Completed initialization in 0 ms
+[2026-07-06T09:30:14.467+07:00] INFO  [77b9f2fb-19d5-491d-a160-c9f57b801585] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:14.467+07:00] WARN  [77b9f2fb-19d5-491d-a160-c9f57b801585] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:14.487+07:00] INFO  [77b9f2fb-19d5-491d-a160-c9f57b801585] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=20
+[2026-07-06T09:30:14.498+07:00] INFO  [32827a74-49f6-4131-903a-49301d22b020] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:14.498+07:00] WARN  [32827a74-49f6-4131-903a-49301d22b020] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:14.499+07:00] INFO  [32827a74-49f6-4131-903a-49301d22b020] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:30:15.360+07:00] INFO  [08dcb054-bfc2-40ad-a40a-d842ea98ee4f] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:15.361+07:00] WARN  [08dcb054-bfc2-40ad-a40a-d842ea98ee4f] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:15.362+07:00] INFO  [08dcb054-bfc2-40ad-a40a-d842ea98ee4f] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=2
+[2026-07-06T09:30:15.375+07:00] INFO  [50a0a220-47a3-4944-b704-d896fb5c62b9] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:15.375+07:00] WARN  [50a0a220-47a3-4944-b704-d896fb5c62b9] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:15.376+07:00] INFO  [50a0a220-47a3-4944-b704-d896fb5c62b9] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:30:16.097+07:00] INFO  [10d22d2c-228d-4040-8925-4f05fd61a078] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:16.097+07:00] WARN  [10d22d2c-228d-4040-8925-4f05fd61a078] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:16.098+07:00] INFO  [10d22d2c-228d-4040-8925-4f05fd61a078] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:30:16.115+07:00] INFO  [edcd47c3-7615-4a6f-91e0-5f2527eb714c] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:16.116+07:00] WARN  [edcd47c3-7615-4a6f-91e0-5f2527eb714c] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:16.117+07:00] INFO  [edcd47c3-7615-4a6f-91e0-5f2527eb714c] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=2
+[2026-07-06T09:30:16.729+07:00] INFO  [013569e3-2bc5-4eb5-8b27-947d023b75aa] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:16.730+07:00] WARN  [013569e3-2bc5-4eb5-8b27-947d023b75aa] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:16.730+07:00] INFO  [013569e3-2bc5-4eb5-8b27-947d023b75aa] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:30:16.743+07:00] INFO  [17d9beb6-9b48-490e-b6c9-0978b05f79c6] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:30:16.744+07:00] WARN  [17d9beb6-9b48-490e-b6c9-0978b05f79c6] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:30:16.744+07:00] INFO  [17d9beb6-9b48-490e-b6c9-0978b05f79c6] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:33:03.684+07:00] INFO  [89c95b4a-b229-423b-b724-316f6f987117] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/.well-known/appspecific/com.chrome.devtools.json remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:33:03.685+07:00] WARN  [89c95b4a-b229-423b-b724-316f6f987117] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:33:03.685+07:00] INFO  [89c95b4a-b229-423b-b724-316f6f987117] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:33:11.779+07:00] INFO  [0392c6d2-653d-484b-b443-734e907736df] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:33:11.779+07:00] WARN  [0392c6d2-653d-484b-b443-734e907736df] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:33:11.780+07:00] INFO  [0392c6d2-653d-484b-b443-734e907736df] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:33:11.794+07:00] INFO  [ae6de085-fea4-4260-9c68-8bb4c87d7e2a] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:33:11.794+07:00] WARN  [ae6de085-fea4-4260-9c68-8bb4c87d7e2a] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:33:11.796+07:00] INFO  [ae6de085-fea4-4260-9c68-8bb4c87d7e2a] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=2
+[2026-07-06T09:33:11.808+07:00] INFO  [775921fa-324c-4a99-9b7e-060ba27fd9eb] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/.well-known/appspecific/com.chrome.devtools.json remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:33:11.808+07:00] WARN  [775921fa-324c-4a99-9b7e-060ba27fd9eb] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:33:11.809+07:00] INFO  [775921fa-324c-4a99-9b7e-060ba27fd9eb] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:34:37.815+07:00] INFO  [54ed9382-d122-49da-807f-611c97a9f8e6] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/app.js remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:34:37.817+07:00] WARN  [54ed9382-d122-49da-807f-611c97a9f8e6] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:34:37.818+07:00] INFO  [54ed9382-d122-49da-807f-611c97a9f8e6] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=3
+[2026-07-06T09:34:37.838+07:00] INFO  [7af1a507-0197-483a-a069-141f9fe0f369] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/.well-known/appspecific/com.chrome.devtools.json remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:34:37.838+07:00] WARN  [7af1a507-0197-483a-a069-141f9fe0f369] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:34:37.839+07:00] INFO  [7af1a507-0197-483a-a069-141f9fe0f369] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:34:37.841+07:00] INFO  [2a82829b-018e-4b81-9671-1e59669b1171] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:34:37.841+07:00] WARN  [2a82829b-018e-4b81-9671-1e59669b1171] [SignatureValidationFilter.doFilterInternal] step=signature_validation_failed reason=missing_header
+[2026-07-06T09:34:37.842+07:00] INFO  [2a82829b-018e-4b81-9671-1e59669b1171] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1
+[2026-07-06T09:37:13.762+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T09:37:13.768+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T09:37:13.781+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T09:37:13.783+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T09:37:15.660+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 16069 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:37:15.661+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:37:16.129+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T09:37:16.135+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T09:37:16.135+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T09:37:16.157+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T09:37:16.158+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 476 ms
+[2026-07-06T09:37:16.204+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T09:37:16.251+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@4dad0eed
+[2026-07-06T09:37:16.283+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T09:37:16.630+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T09:37:16.642+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T09:37:16.770+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T09:37:16.776+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.321 seconds (process running for 1.48)
+[2026-07-06T09:37:21.774+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-07-06T09:37:21.774+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Initializing Servlet 'dispatcherServlet'
+[2026-07-06T09:37:21.775+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Completed initialization in 1 ms
+[2026-07-06T09:37:21.780+07:00] INFO  [9182b914-1e16-4ed4-83a9-ee5cd8f11613] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/app.js remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:37:21.796+07:00] INFO  [9182b914-1e16-4ed4-83a9-ee5cd8f11613] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=16
+[2026-07-06T09:37:21.814+07:00] INFO  [e55c9670-bbf1-437c-b616-8c69288fd742] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/.well-known/appspecific/com.chrome.devtools.json remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:37:21.819+07:00] INFO  [0503fef8-a053-42e5-b0a9-01ce4f423878] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:37:21.825+07:00] ERROR [e55c9670-bbf1-437c-b616-8c69288fd742] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=NoResourceFoundException
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.CachedBodyFilter.doFilterInternal(CachedBodyFilter.java:43)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:37:21.825+07:00] ERROR [0503fef8-a053-42e5-b0a9-01ce4f423878] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=NoResourceFoundException
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.CachedBodyFilter.doFilterInternal(CachedBodyFilter.java:43)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:37:21.850+07:00] INFO  [e55c9670-bbf1-437c-b616-8c69288fd742] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=36
+[2026-07-06T09:37:21.850+07:00] INFO  [0503fef8-a053-42e5-b0a9-01ce4f423878] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=32
+[2026-07-06T09:37:29.607+07:00] INFO  [e30f2e81-5c36-41ec-9bed-35e5491d2817] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/ remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:37:29.623+07:00] INFO  [e30f2e81-5c36-41ec-9bed-35e5491d2817] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=17
+[2026-07-06T09:37:29.640+07:00] INFO  [2f68c5fc-1e85-4183-b203-0b77f0cf9db2] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/styles.css remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:37:29.643+07:00] INFO  [2f68c5fc-1e85-4183-b203-0b77f0cf9db2] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=3
+[2026-07-06T09:37:29.674+07:00] INFO  [4cd0dc79-c8c4-4a35-82fc-6b214b598cea] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:37:29.677+07:00] ERROR [4cd0dc79-c8c4-4a35-82fc-6b214b598cea] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=NoResourceFoundException
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.CachedBodyFilter.doFilterInternal(CachedBodyFilter.java:43)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:37:29.678+07:00] INFO  [4cd0dc79-c8c4-4a35-82fc-6b214b598cea] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=4
+[2026-07-06T09:38:09.683+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer/face-compare remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:38:09.700+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [SignatureValidationFilter.doFilterInternal] body=customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:38:09.700+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [SignatureValidationFilter.doFilterInternal] plainText=customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8863ca350-a696-40fc-a10b-fb897c8fd9fe2026-07-06T02:38:09.676Z
+[2026-07-06T09:38:09.701+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [SignatureValidationFilter.doFilterInternal] generatedSignature=G2WNjaWNf7XGjqTfYyRAIy1RGWTGDsbOTJ0BHdh27Oc=
+[2026-07-06T09:38:09.701+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [SignatureValidationFilter.doFilterInternal] receivedSignature=G2WNjaWNf7XGjqTfYyRAIy1RGWTGDsbOTJ0BHdh27Oc=
+[2026-07-06T09:38:09.701+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T09:38:09.725+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [FaceCompareController.faceCompare] step=controller_request_received operation=face_compare customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:38:09.725+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [FaceCompareService.compareFace] step=face_compare_started customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:38:09.726+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [CustomerDao.findByCustomerCode] step=database_query_started table=customer customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:38:09.748+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [CustomerDao.findByCustomerCode] step=database_query_completed table=customer customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:38:09.753+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [ImageStorageService.saveFile] step=create_directory folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie
+[2026-07-06T09:38:09.753+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [ImageStorageService.saveFile] step=image_saved folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie/c473cbbf-4f45-4529-9a33-9059608f0353_DVH1.jpg
+[2026-07-06T09:38:09.754+07:00] ERROR [863ca350-a696-40fc-a10b-fb897c8fd9fe] [FaceCompareService.compareFace] step=face_compare_failed customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+java.lang.RuntimeException: Id Card Image Not Found: /Users/baoduy/ekyclocal/uploads/idcard/662cc2b4-644e-4fca-a032-01f54b3f0259_DVH.jpeg
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:70)
+	at com.bank.ekyc.presentation.controller.FaceCompareController.faceCompare(FaceCompareController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.SignatureValidationFilter.doFilterInternal(SignatureValidationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:38:09.755+07:00] ERROR [863ca350-a696-40fc-a10b-fb897c8fd9fe] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=RuntimeException
+java.lang.RuntimeException: Face Compare Failed
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:157)
+	at com.bank.ekyc.presentation.controller.FaceCompareController.faceCompare(FaceCompareController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.SignatureValidationFilter.doFilterInternal(SignatureValidationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.RuntimeException: Id Card Image Not Found: /Users/baoduy/ekyclocal/uploads/idcard/662cc2b4-644e-4fca-a032-01f54b3f0259_DVH.jpeg
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:70)
+	... 60 common frames omitted
+[2026-07-06T09:38:09.756+07:00] INFO  [863ca350-a696-40fc-a10b-fb897c8fd9fe] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=73
+[2026-07-06T09:38:28.847+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer/face-compare remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:38:28.850+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [SignatureValidationFilter.doFilterInternal] body=customerCode=2813ba02-f948-4266-9830-88665b398096
+[2026-07-06T09:38:28.850+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [SignatureValidationFilter.doFilterInternal] plainText=customerCode=2813ba02-f948-4266-9830-88665b398096edf0e86f-bd96-493f-9453-727826463d302026-07-06T02:38:28.828Z
+[2026-07-06T09:38:28.851+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [SignatureValidationFilter.doFilterInternal] generatedSignature=/P1ALmatM9rem0bugGKYn4sdrzUrAJTpVQyzwDO/2P8=
+[2026-07-06T09:38:28.851+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [SignatureValidationFilter.doFilterInternal] receivedSignature=/P1ALmatM9rem0bugGKYn4sdrzUrAJTpVQyzwDO/2P8=
+[2026-07-06T09:38:28.851+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T09:38:28.852+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareController.faceCompare] step=controller_request_received operation=face_compare customerCode=2813ba02-f948-4266-9830-88665b398096
+[2026-07-06T09:38:28.852+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareService.compareFace] step=face_compare_started customerCode=2813ba02-f948-4266-9830-88665b398096
+[2026-07-06T09:38:28.852+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [CustomerDao.findByCustomerCode] step=database_query_started table=customer customerCode=2813ba02-f948-4266-9830-88665b398096
+[2026-07-06T09:38:28.854+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [CustomerDao.findByCustomerCode] step=database_query_completed table=customer customerCode=2813ba02-f948-4266-9830-88665b398096
+[2026-07-06T09:38:28.856+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [ImageStorageService.saveFile] step=create_directory folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie
+[2026-07-06T09:38:28.857+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [ImageStorageService.saveFile] step=image_saved folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie/cd1d7a3b-69f3-45f5-8c12-5adb02dcfd84_khac.jpg
+[2026-07-06T09:38:28.867+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareService.compareFace] step=rekognition_compare_started customerCode=2813ba02-f948-4266-9830-88665b398096 imagePath=/Users/baoduy/ekyclocal/uploads/idcard/4be23176-c445-4e10-b7cb-53d4a4be6b82_1234_cccd.jpg
+[2026-07-06T09:38:30.461+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareHistoryDao.insert] step=database_insert_started table=face_compare_history customerCode=2813ba02-f948-4266-9830-88665b398096
+[2026-07-06T09:38:30.466+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareHistoryDao.insert] step=database_insert_completed table=face_compare_history customerCode=2813ba02-f948-4266-9830-88665b398096 affectedRows=1
+[2026-07-06T09:38:30.466+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareService.compareFace] step=face_compare_completed requestId=edf0e86f-bd96-493f-9453-727826463d30 customerCode=2813ba02-f948-4266-9830-88665b398096 similarity=98.42440795898438 compareStatus=MATCH durationMs=1614
+[2026-07-06T09:38:30.467+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [FaceCompareController.faceCompare] step=controller_response_ready operation=face_compare customerCode=2813ba02-f948-4266-9830-88665b398096 similarity=98.42440795898438 compareStatus=MATCH durationMs=1615
+[2026-07-06T09:38:30.486+07:00] INFO  [edf0e86f-bd96-493f-9453-727826463d30] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1639
+[2026-07-06T09:40:26.195+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer/face-compare remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:40:26.198+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [SignatureValidationFilter.doFilterInternal] body=customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:26.199+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [SignatureValidationFilter.doFilterInternal] plainText=customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8ecb3ae59-d223-4077-aae9-32adf640c3df2026-07-06T02:40:26.189Z
+[2026-07-06T09:40:26.199+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [SignatureValidationFilter.doFilterInternal] generatedSignature=NqVf3HOK+xh1OUDf1I6CKskKhMQPzVVRDk8p0QsuJkQ=
+[2026-07-06T09:40:26.199+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [SignatureValidationFilter.doFilterInternal] receivedSignature=NqVf3HOK+xh1OUDf1I6CKskKhMQPzVVRDk8p0QsuJkQ=
+[2026-07-06T09:40:26.199+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T09:40:26.201+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [FaceCompareController.faceCompare] step=controller_request_received operation=face_compare customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:26.201+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [FaceCompareService.compareFace] step=face_compare_started customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:26.201+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [CustomerDao.findByCustomerCode] step=database_query_started table=customer customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:26.203+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [CustomerDao.findByCustomerCode] step=database_query_completed table=customer customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:26.204+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [ImageStorageService.saveFile] step=create_directory folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie
+[2026-07-06T09:40:26.206+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [ImageStorageService.saveFile] step=image_saved folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie/ae10e076-bcc0-4b6a-b7fa-241f69dbab08_HL4.jpeg
+[2026-07-06T09:40:26.206+07:00] ERROR [ecb3ae59-d223-4077-aae9-32adf640c3df] [FaceCompareService.compareFace] step=face_compare_failed customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+java.lang.RuntimeException: Id Card Image Not Found: /Users/baoduy/ekyclocal/uploads/idcard/662cc2b4-644e-4fca-a032-01f54b3f0259_DVH.jpeg
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:70)
+	at com.bank.ekyc.presentation.controller.FaceCompareController.faceCompare(FaceCompareController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.SignatureValidationFilter.doFilterInternal(SignatureValidationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:40:26.208+07:00] ERROR [ecb3ae59-d223-4077-aae9-32adf640c3df] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=RuntimeException
+java.lang.RuntimeException: Face Compare Failed
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:157)
+	at com.bank.ekyc.presentation.controller.FaceCompareController.faceCompare(FaceCompareController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.SignatureValidationFilter.doFilterInternal(SignatureValidationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.RuntimeException: Id Card Image Not Found: /Users/baoduy/ekyclocal/uploads/idcard/662cc2b4-644e-4fca-a032-01f54b3f0259_DVH.jpeg
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:70)
+	... 60 common frames omitted
+[2026-07-06T09:40:26.210+07:00] INFO  [ecb3ae59-d223-4077-aae9-32adf640c3df] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=15
+[2026-07-06T09:40:51.555+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T09:40:51.559+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T09:40:51.563+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T09:40:51.564+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T09:40:53.410+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 16148 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T09:40:53.411+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T09:40:53.888+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T09:40:53.895+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T09:40:53.895+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T09:40:53.919+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T09:40:53.919+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 488 ms
+[2026-07-06T09:40:53.965+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T09:40:54.008+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@104dc1a2
+[2026-07-06T09:40:54.040+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T09:40:54.376+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T09:40:54.388+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T09:40:54.515+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T09:40:54.520+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.329 seconds (process running for 1.481)
+[2026-07-06T09:40:57.979+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-07-06T09:40:57.980+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Initializing Servlet 'dispatcherServlet'
+[2026-07-06T09:40:57.981+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Completed initialization in 1 ms
+[2026-07-06T09:40:57.983+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer/face-compare remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:40:57.992+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [SignatureValidationFilter.doFilterInternal] body=customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:57.992+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [SignatureValidationFilter.doFilterInternal] plainText=customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed88b9634ed-355e-4396-a59e-df410db19ad82026-07-06T02:40:57.922Z
+[2026-07-06T09:40:57.992+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [SignatureValidationFilter.doFilterInternal] generatedSignature=XxokNb3kblK/47MpWurh2R0aGGUp8AAwUflvl+8U2Oo=
+[2026-07-06T09:40:57.993+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [SignatureValidationFilter.doFilterInternal] receivedSignature=XxokNb3kblK/47MpWurh2R0aGGUp8AAwUflvl+8U2Oo=
+[2026-07-06T09:40:57.993+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T09:40:58.014+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [FaceCompareController.faceCompare] step=controller_request_received operation=face_compare customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:58.014+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [FaceCompareService.compareFace] step=face_compare_started customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:58.015+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [CustomerDao.findByCustomerCode] step=database_query_started table=customer customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:58.030+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [CustomerDao.findByCustomerCode] step=database_query_completed table=customer customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+[2026-07-06T09:40:58.034+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [ImageStorageService.saveFile] step=create_directory folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie
+[2026-07-06T09:40:58.034+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [ImageStorageService.saveFile] step=image_saved folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie/d1a1e7a5-46a6-4aac-b311-5078c9a4bd9a_HL4.jpeg
+[2026-07-06T09:40:58.035+07:00] ERROR [8b9634ed-355e-4396-a59e-df410db19ad8] [FaceCompareService.compareFace] step=face_compare_failed customerCode=aeb0b262-fa4e-4adc-88bf-7c3431a29ed8
+java.lang.RuntimeException: Id Card Image Not Found: /Users/baoduy/ekyclocal/uploads/idcard/662cc2b4-644e-4fca-a032-01f54b3f0259_DVH.jpeg
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:70)
+	at com.bank.ekyc.presentation.controller.FaceCompareController.faceCompare(FaceCompareController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.SignatureValidationFilter.doFilterInternal(SignatureValidationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:40:58.037+07:00] ERROR [8b9634ed-355e-4396-a59e-df410db19ad8] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=RuntimeException
+java.lang.RuntimeException: Face Compare Failed
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:157)
+	at com.bank.ekyc.presentation.controller.FaceCompareController.faceCompare(FaceCompareController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.SignatureValidationFilter.doFilterInternal(SignatureValidationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.RuntimeException: Id Card Image Not Found: /Users/baoduy/ekyclocal/uploads/idcard/662cc2b4-644e-4fca-a032-01f54b3f0259_DVH.jpeg
+	at com.bank.ekyc.application.service.FaceCompareService.compareFace(FaceCompareService.java:70)
+	... 60 common frames omitted
+[2026-07-06T09:40:58.058+07:00] INFO  [8b9634ed-355e-4396-a59e-df410db19ad8] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=75
+[2026-07-06T09:43:15.140+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:43:15.146+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [SignatureValidationFilter.doFilterInternal] body=fullName=jjjjj&idNumber=48139481390891&phone=817394790138094&email=nguyenvana@gmail.com
+[2026-07-06T09:43:15.146+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [SignatureValidationFilter.doFilterInternal] plainText=fullName=jjjjj&idNumber=48139481390891&phone=817394790138094&email=nguyenvana@gmail.com5914a16e-59d3-440b-85f2-25440f097cb42026-07-06T02:43:15.121Z
+[2026-07-06T09:43:15.147+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [SignatureValidationFilter.doFilterInternal] generatedSignature=3b3h4xOk+z2q9cLxRltwQtK+32i3tSQpIMIe2dIRyRw=
+[2026-07-06T09:43:15.147+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [SignatureValidationFilter.doFilterInternal] receivedSignature=3b3h4xOk+z2q9cLxRltwQtK+32i3tSQpIMIe2dIRyRw=
+[2026-07-06T09:43:15.147+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T09:43:15.150+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [CustomerController.createCustomer] step=controller_request_received operation=create_customer
+[2026-07-06T09:43:15.151+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [CustomerService.createCustomer] step=service_started operation=create_customer
+[2026-07-06T09:43:15.152+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [ImageStorageService.saveFile] step=create_directory folder=idcard path=/Users/baoduy/ekyclocal/uploads/idcard
+[2026-07-06T09:43:15.152+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [ImageStorageService.saveFile] step=image_saved folder=idcard path=/Users/baoduy/ekyclocal/uploads/idcard/7125d251-9c91-4bdc-8f4b-cb090c872b08_DVH1.jpg
+[2026-07-06T09:43:15.153+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [CustomerDao.insert] step=database_insert_started table=customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:15.158+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [CustomerDao.insert] step=database_insert_completed table=customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 affectedRows=1
+[2026-07-06T09:43:15.158+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [CustomerService.createCustomer] step=service_completed operation=create_customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:15.158+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [CustomerController.createCustomer] step=controller_response_ready operation=create_customer responseCode=0000
+[2026-07-06T09:43:15.169+07:00] INFO  [5914a16e-59d3-440b-85f2-25440f097cb4] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=29
+[2026-07-06T09:43:43.073+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer/face-compare remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:43:43.080+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [SignatureValidationFilter.doFilterInternal] body=customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:43.080+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [SignatureValidationFilter.doFilterInternal] plainText=customerCode=8143f75d-5de6-4348-a84d-1de8f562c1041a00420f-3d66-4810-bf1d-b0d065070bb02026-07-06T02:43:43.068Z
+[2026-07-06T09:43:43.080+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [SignatureValidationFilter.doFilterInternal] generatedSignature=aDx8CiVDS1KoLnPuthpYOn1ngIvCetzwgFppy8Rn7HY=
+[2026-07-06T09:43:43.080+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [SignatureValidationFilter.doFilterInternal] receivedSignature=aDx8CiVDS1KoLnPuthpYOn1ngIvCetzwgFppy8Rn7HY=
+[2026-07-06T09:43:43.081+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T09:43:43.082+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareController.faceCompare] step=controller_request_received operation=face_compare customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:43.082+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareService.compareFace] step=face_compare_started customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:43.082+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [CustomerDao.findByCustomerCode] step=database_query_started table=customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:43.084+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [CustomerDao.findByCustomerCode] step=database_query_completed table=customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:43.087+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [ImageStorageService.saveFile] step=create_directory folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie
+[2026-07-06T09:43:43.087+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [ImageStorageService.saveFile] step=image_saved folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie/975550bb-6680-485b-8741-dfab20f92a03_DVH.jpg
+[2026-07-06T09:43:43.096+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareService.compareFace] step=rekognition_compare_started customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 imagePath=/Users/baoduy/ekyclocal/uploads/idcard/7125d251-9c91-4bdc-8f4b-cb090c872b08_DVH1.jpg
+[2026-07-06T09:43:44.814+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareHistoryDao.insert] step=database_insert_started table=face_compare_history customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T09:43:44.818+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareHistoryDao.insert] step=database_insert_completed table=face_compare_history customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 affectedRows=1
+[2026-07-06T09:43:44.818+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareService.compareFace] step=face_compare_completed requestId=1a00420f-3d66-4810-bf1d-b0d065070bb0 customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 similarity=99.9852523803711 compareStatus=MATCH durationMs=1736
+[2026-07-06T09:43:44.819+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [FaceCompareController.faceCompare] step=controller_response_ready operation=face_compare customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 similarity=99.9852523803711 compareStatus=MATCH durationMs=1737
+[2026-07-06T09:43:44.828+07:00] INFO  [1a00420f-3d66-4810-bf1d-b0d065070bb0] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=1755
+[2026-07-06T09:49:26.421+07:00] INFO  [N/A] [DirectJDKLog.log] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:780)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:444)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:270)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:49:26.454+07:00] INFO  [df0a8270-e6b2-459c-aeec-3104c5ea1e0b] [RequestLoggingFilter.doFilterInternal] step=request_received method=GET uri=/favicon.ico remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T09:49:26.458+07:00] ERROR [df0a8270-e6b2-459c-aeec-3104c5ea1e0b] [GlobalExceptionHandler.handleException] step=system_exception_handled exceptionType=NoResourceFoundException
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.bank.ekyc.filter.CachedBodyFilter.doFilterInternal(CachedBodyFilter.java:43)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-07-06T09:49:26.460+07:00] INFO  [df0a8270-e6b2-459c-aeec-3104c5ea1e0b] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=6
+[2026-07-06T09:53:16.577+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T09:53:16.580+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T09:53:16.583+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T09:53:16.584+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T10:05:55.444+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 16414 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T10:05:55.445+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T10:05:55.930+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T10:05:55.937+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T10:05:55.937+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T10:05:55.961+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T10:05:55.961+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 497 ms
+[2026-07-06T10:05:56.369+07:00] INFO  [N/A] [WelcomePageHandlerMapping.<init>] Adding welcome page: class path resource [static/index.html]
+[2026-07-06T10:05:56.382+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T10:05:56.506+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T10:05:56.511+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.294 seconds (process running for 1.464)
+[2026-07-06T10:06:05.151+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-07-06T10:06:05.152+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Initializing Servlet 'dispatcherServlet'
+[2026-07-06T10:06:05.153+07:00] INFO  [N/A] [FrameworkServlet.initServletBean] Completed initialization in 1 ms
+[2026-07-06T10:06:05.155+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [RequestLoggingFilter.doFilterInternal] step=request_received method=POST uri=/api/v1/customer/face-compare remoteAddress=0:0:0:0:0:0:0:1
+[2026-07-06T10:06:05.167+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [SignatureValidationFilter.doFilterInternal] body=customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T10:06:05.167+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [SignatureValidationFilter.doFilterInternal] plainText=customerCode=8143f75d-5de6-4348-a84d-1de8f562c104b1a44e73-4de7-46bb-8106-0fadbf19522a2026-07-06T03:06:05.093Z
+[2026-07-06T10:06:05.167+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [SignatureValidationFilter.doFilterInternal] generatedSignature=ydeCBLroYhleM45u1f2NWv94JTRKqS6mPxyeISeF8qc=
+[2026-07-06T10:06:05.167+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [SignatureValidationFilter.doFilterInternal] receivedSignature=ydeCBLroYhleM45u1f2NWv94JTRKqS6mPxyeISeF8qc=
+[2026-07-06T10:06:05.167+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [SignatureValidationFilter.doFilterInternal] step=signature_validation_success
+[2026-07-06T10:06:05.190+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareController.faceCompare] step=controller_request_received operation=face_compare customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T10:06:05.190+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareService.compareFace] step=face_compare_started customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T10:06:05.191+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [CustomerDao.findByCustomerCode] step=database_query_started table=customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T10:06:05.194+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [HikariDataSource.getConnection] EKYC_POOL - Starting...
+[2026-07-06T10:06:05.240+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@501076a8
+[2026-07-06T10:06:05.241+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [HikariDataSource.getConnection] EKYC_POOL - Start completed.
+[2026-07-06T10:06:05.254+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [CustomerDao.findByCustomerCode] step=database_query_completed table=customer customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T10:06:05.259+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [ImageStorageService.saveFile] step=create_directory folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie
+[2026-07-06T10:06:05.259+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [ImageStorageService.saveFile] step=image_saved folder=selfie path=/Users/baoduy/ekyclocal/uploads/selfie/3b1b797b-281f-4d5d-81bf-4c1708e457d9_DVH.jpg
+[2026-07-06T10:06:05.262+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareService.compareFace] step=rekognition_compare_started customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 imagePath=/Users/baoduy/ekyclocal/uploads/idcard/7125d251-9c91-4bdc-8f4b-cb090c872b08_DVH1.jpg
+[2026-07-06T10:06:05.979+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareHistoryDao.insert] step=database_insert_started table=face_compare_history customerCode=8143f75d-5de6-4348-a84d-1de8f562c104
+[2026-07-06T10:06:05.984+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareHistoryDao.insert] step=database_insert_completed table=face_compare_history customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 affectedRows=1
+[2026-07-06T10:06:05.984+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareService.compareFace] step=face_compare_completed requestId=b1a44e73-4de7-46bb-8106-0fadbf19522a customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 similarity=99.9852523803711 compareStatus=MATCH durationMs=794
+[2026-07-06T10:06:05.985+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [FaceCompareController.faceCompare] step=controller_response_ready operation=face_compare customerCode=8143f75d-5de6-4348-a84d-1de8f562c104 similarity=99.9852523803711 compareStatus=MATCH durationMs=795
+[2026-07-06T10:06:06.020+07:00] INFO  [b1a44e73-4de7-46bb-8106-0fadbf19522a] [RequestLoggingFilter.doFilterInternal] step=request_completed status=200 durationMs=865
+[2026-07-06T10:06:13.572+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T10:06:13.576+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T10:06:13.578+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T10:06:13.579+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T11:06:20.339+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 17591 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T11:06:20.340+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T11:06:20.697+07:00] INFO  [N/A] [RepositoryConfigurationDelegate.registerRepositoriesIn] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2026-07-06T11:06:20.709+07:00] INFO  [N/A] [RepositoryConfigurationDelegate.registerRepositoriesIn] Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+[2026-07-06T11:06:20.917+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T11:06:20.924+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T11:06:20.924+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T11:06:20.949+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T11:06:20.949+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 579 ms
+[2026-07-06T11:06:21.006+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T11:06:21.126+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@491f8831
+[2026-07-06T11:06:21.128+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T11:06:21.184+07:00] INFO  [N/A] [LogHelper.logPersistenceUnitInformation] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2026-07-06T11:06:21.220+07:00] INFO  [N/A] [Version.logVersion] HHH000412: Hibernate ORM core version 6.6.8.Final
+[2026-07-06T11:06:21.241+07:00] INFO  [N/A] [RegionFactoryInitiator.initiateService] HHH000026: Second-level cache disabled
+[2026-07-06T11:06:21.370+07:00] INFO  [N/A] [SpringPersistenceUnitInfo.addTransformer] No LoadTimeWeaver setup: ignoring JPA class transformer
+[2026-07-06T11:06:21.419+07:00] INFO  [N/A] [JdbcEnvironmentInitiator.initiateService] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (EKYC_POOL)']
+	Database driver: undefined/unknown
+	Database version: 18.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2026-07-06T11:06:21.570+07:00] INFO  [N/A] [JtaPlatformInitiator.initiateService] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2026-07-06T11:06:21.572+07:00] INFO  [N/A] [AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2026-07-06T11:06:21.948+07:00] WARN  [N/A] [JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2026-07-06T11:06:21.974+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T11:06:22.130+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T11:06:22.135+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 2.029 seconds (process running for 2.229)
+[2026-07-06T11:07:05.800+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T11:07:05.806+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T11:07:05.818+07:00] INFO  [N/A] [AbstractEntityManagerFactoryBean.destroy] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2026-07-06T11:07:05.819+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T11:07:05.821+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T11:07:07.290+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 17624 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T11:07:07.294+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T11:07:07.671+07:00] INFO  [N/A] [RepositoryConfigurationDelegate.registerRepositoriesIn] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2026-07-06T11:07:07.683+07:00] INFO  [N/A] [RepositoryConfigurationDelegate.registerRepositoriesIn] Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+[2026-07-06T11:07:07.883+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T11:07:07.889+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T11:07:07.890+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T11:07:07.914+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T11:07:07.914+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 590 ms
+[2026-07-06T11:07:07.969+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T11:07:08.064+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@29962b2f
+[2026-07-06T11:07:08.065+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T11:07:08.112+07:00] INFO  [N/A] [LogHelper.logPersistenceUnitInformation] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2026-07-06T11:07:08.148+07:00] INFO  [N/A] [Version.logVersion] HHH000412: Hibernate ORM core version 6.6.8.Final
+[2026-07-06T11:07:08.169+07:00] INFO  [N/A] [RegionFactoryInitiator.initiateService] HHH000026: Second-level cache disabled
+[2026-07-06T11:07:08.282+07:00] INFO  [N/A] [SpringPersistenceUnitInfo.addTransformer] No LoadTimeWeaver setup: ignoring JPA class transformer
+[2026-07-06T11:07:08.324+07:00] INFO  [N/A] [JdbcEnvironmentInitiator.initiateService] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (EKYC_POOL)']
+	Database driver: undefined/unknown
+	Database version: 18.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2026-07-06T11:07:08.474+07:00] INFO  [N/A] [JtaPlatformInitiator.initiateService] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2026-07-06T11:07:08.476+07:00] INFO  [N/A] [AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2026-07-06T11:07:08.828+07:00] WARN  [N/A] [JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2026-07-06T11:07:08.858+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T11:07:09.021+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T11:07:09.027+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 2.114 seconds (process running for 2.39)
+[2026-07-06T11:07:37.438+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T11:07:37.441+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T11:07:37.452+07:00] INFO  [N/A] [AbstractEntityManagerFactoryBean.destroy] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2026-07-06T11:07:37.453+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T11:07:37.454+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
+[2026-07-06T11:11:03.621+07:00] INFO  [N/A] [StartupInfoLogger.logStarting] Starting EkycApplication using Java 21.0.11 with PID 17714 (/Users/baoduy/ekyclocal/ekyc-local/target/classes started by baoduy in /Users/baoduy/ekyclocal)
+[2026-07-06T11:11:03.622+07:00] INFO  [N/A] [SpringApplication.logStartupProfileInfo] No active profile set, falling back to 1 default profile: "default"
+[2026-07-06T11:11:04.101+07:00] INFO  [N/A] [TomcatWebServer.initialize] Tomcat initialized with port 8080 (http)
+[2026-07-06T11:11:04.107+07:00] INFO  [N/A] [DirectJDKLog.log] Starting service [Tomcat]
+[2026-07-06T11:11:04.107+07:00] INFO  [N/A] [DirectJDKLog.log] Starting Servlet engine: [Apache Tomcat/10.1.36]
+[2026-07-06T11:11:04.130+07:00] INFO  [N/A] [DirectJDKLog.log] Initializing Spring embedded WebApplicationContext
+[2026-07-06T11:11:04.130+07:00] INFO  [N/A] [ServletWebServerApplicationContext.prepareWebApplicationContext] Root WebApplicationContext: initialization completed in 488 ms
+[2026-07-06T11:11:04.178+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Starting...
+[2026-07-06T11:11:04.284+07:00] INFO  [N/A] [HikariPool.checkFailFast] EKYC_POOL - Added connection org.postgresql.jdbc.PgConnection@262a1fad
+[2026-07-06T11:11:04.286+07:00] INFO  [N/A] [HikariDataSource.<init>] EKYC_POOL - Start completed.
+[2026-07-06T11:11:04.658+07:00] INFO  [N/A] [OptionalValidatorFactoryBean.afterPropertiesSet] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2026-07-06T11:11:04.787+07:00] INFO  [N/A] [TomcatWebServer.start] Tomcat started on port 8080 (http) with context path '/'
+[2026-07-06T11:11:04.792+07:00] INFO  [N/A] [StartupInfoLogger.logStarted] Started EkycApplication in 1.391 seconds (process running for 1.573)
+[2026-07-06T11:14:26.265+07:00] INFO  [N/A] [GracefulShutdown.shutDownGracefully] Commencing graceful shutdown. Waiting for active requests to complete
+[2026-07-06T11:14:26.269+07:00] INFO  [N/A] [GracefulShutdown.doShutdown] Graceful shutdown complete
+[2026-07-06T11:14:26.278+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown initiated...
+[2026-07-06T11:14:26.279+07:00] INFO  [N/A] [HikariDataSource.close] EKYC_POOL - Shutdown completed.
