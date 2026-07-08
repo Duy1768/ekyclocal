@@ -43,7 +43,17 @@ public class HikariConfiguration {
     @Bean
     public DataSource dataSource() {
 
-        log.info("====== CUSTOM HIKARI CONFIGURATION ======");
+        log.info("============ CUSTOM HIKARI CONFIGURATION ============");
+        log.info("Database URL       : {}", url);
+        log.info("Database Username  : {}", username);
+        log.info("Database Password  : {}", maskPassword(password));
+        log.info("Pool Name          : {}", poolName);
+        log.info("Minimum Idle       : {}", minimumIdle);
+        log.info("Maximum Pool Size  : {}", maximumPoolSize);
+        log.info("Idle Timeout       : {} ms", idleTimeout);
+        log.info("Max Lifetime       : {} ms", maxLifetime);
+        log.info("Connection Timeout : {} ms", connectionTimeout);
+        log.info("======================================================");
 
         HikariConfig config = new HikariConfig();
 
@@ -71,6 +81,15 @@ public class HikariConfiguration {
         config.setRegisterMbeans(true);
 
         return new HikariDataSource(config);
+    }
+
+    private String maskPassword(String password) {
+
+        if (password == null || password.isBlank()) {
+            return "********";
+        }
+
+        return "*".repeat(password.length());
     }
 
 }
