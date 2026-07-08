@@ -45,8 +45,9 @@ class HikariConnectionPoolTest {
         }
     }
 
+    //test khong vuot qua so luong ket noi toi da khi qua tai
     @Test
-    void maximumPoolSize_doesNotCreateMoreThan20Connections() throws Exception {
+    void maximumPoolSizeDoesNotCreateMoreThan20Connections() throws Exception {
         try (HikariDataSource dataSource = newDataSource(5, 20, 1_000, 600_000, 1_800_000)) {
             BorrowReport report = runContentionLoad(dataSource, 30, Duration.ofMillis(2_000));
 
@@ -57,8 +58,9 @@ class HikariConnectionPoolTest {
         }
     }
 
+    //test khoi tao ket noi toi thieu va tu dong mo rong khi co tai
     @Test
-    void minimumIdle_startsAtFiveAndScalesToTenUnderLoad() throws Exception {
+    void minimumIdleStartsAtFiveAndScalesToTenUnderLoad() throws Exception {
         try (HikariDataSource dataSource = newDataSource(5, 20, 1_000, 600_000, 1_800_000)) {
             HikariPoolMXBean poolMXBean = dataSource.getHikariPoolMXBean();
             await(() -> poolMXBean.getTotalConnections() == 5 && poolMXBean.getIdleConnections() == 5,
@@ -95,8 +97,9 @@ class HikariConnectionPoolTest {
         }
     }
 
+    //test tra ve loi timeout khi pool da can kiet ket noi
     @Test
-    void connectionTimeout_returnsTimeoutWhenPoolIsExhausted() throws Exception {
+    void connectionTimeoutReturnsTimeoutWhenPoolIsExhausted() throws Exception {
 
         try (HikariDataSource dataSource =
                      newDataSource(5, 20, 1_000, 600_000, 1_800_000)) {
@@ -120,9 +123,10 @@ class HikariConnectionPoolTest {
         }
     }
 
+    // test tu dong thay the ket noi khi het han vong doi
     @Test
     @Timeout(value = 70)
-    void maxLifetime_replacesIdleConnectionAfterExpiry() throws Exception {
+    void maxLifetimeReplacesIdleConnectionAfterExpiry() throws Exception {
         System.setProperty("com.zaxxer.hikari.housekeeping.periodMs", "1000");
 
         try (HikariDataSource dataSource = newDataSource(1, 1, 1_000, 600_000, 30_000)) {
@@ -144,9 +148,10 @@ class HikariConnectionPoolTest {
         }
     }
 
+    //test tu dong giam so ket noi ve muc toi thieu khi het cao diem
     @Test
     @Timeout(value = 40)
-    void idleTimeout_shrinksPoolBackToMinimumIdle() throws Exception {
+    void idleTimeoutShrinksPoolBackToMinimumIdle() throws Exception {
         System.setProperty("com.zaxxer.hikari.housekeeping.periodMs", "1000");
 
         try (HikariDataSource dataSource = newDataSource(5, 20, 1_000, 10_000, 60_000)) {
