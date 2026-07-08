@@ -1,6 +1,6 @@
-
 package com.bank.ekyc.config;
 
+import com.bank.ekyc.common.util.AESUtil;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+
 @Slf4j
 @Configuration
 public class HikariConfiguration {
@@ -20,7 +21,10 @@ public class HikariConfiguration {
     private String username;
 
     @Value("${spring.datasource.password}")
-    private String password;
+    private String encryptedPassword;
+
+    @Value("${AES_MASTER_KEY}")
+    private String masterKey;
 
     @Value("${spring.datasource.hikari.pool-name}")
     private String poolName;
@@ -43,6 +47,8 @@ public class HikariConfiguration {
     @Bean
     public DataSource dataSource() {
 
+        String password = AESUtil.decrypt(encryptedPassword, masterKey);
+
         log.info("============ CUSTOM HIKARI CONFIGURATION ============");
         log.info("Database URL       : {}", url);
         log.info("Database Username  : {}", username);
@@ -53,7 +59,7 @@ public class HikariConfiguration {
         log.info("Idle Timeout       : {} ms", idleTimeout);
         log.info("Max Lifetime       : {} ms", maxLifetime);
         log.info("Connection Timeout : {} ms", connectionTimeout);
-        log.info("======================================================");
+        log.info("=====================================================");
 
         HikariConfig config = new HikariConfig();
 
@@ -91,5 +97,4 @@ public class HikariConfiguration {
 
         return "*".repeat(password.length());
     }
-
 }

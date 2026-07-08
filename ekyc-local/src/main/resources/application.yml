@@ -11,7 +11,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ekyc
     username: baoduy
-    password: enc(mApazBKUoO2/iRqWInsi1vZJlpavfieN)
+    password: fIttKKZFzhz9y46+t5s2SP+1fAlBU54HtptxcYDJRWjcJSsK+T3n4rDs+Q==
 
     hikari:
 
