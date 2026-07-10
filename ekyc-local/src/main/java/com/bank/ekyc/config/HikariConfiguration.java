@@ -1,6 +1,6 @@
-
 package com.bank.ekyc.config;
 
+import com.bank.ekyc.common.util.AESUtil;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+
 @Slf4j
 @Configuration
 public class HikariConfiguration {
@@ -20,7 +21,10 @@ public class HikariConfiguration {
     private String username;
 
     @Value("${spring.datasource.password}")
-    private String password;
+    private String encryptedPassword;
+
+    @Value("${AES_MASTER_KEY}")
+    private String masterKey;
 
     @Value("${spring.datasource.hikari.pool-name}")
     private String poolName;
@@ -43,7 +47,19 @@ public class HikariConfiguration {
     @Bean
     public DataSource dataSource() {
 
-        log.info("====== CUSTOM HIKARI CONFIGURATION ======");
+        String password = AESUtil.decrypt(encryptedPassword, masterKey);
+
+        log.info("============ CUSTOM HIKARI CONFIGURATION ============");
+        log.info("Database URL       : {}", url);
+        log.info("Database Username  : {}", username);
+        log.info("Database Password  : {}", maskPassword(password));
+        log.info("Pool Name          : {}", poolName);
+        log.info("Minimum Idle       : {}", minimumIdle);
+        log.info("Maximum Pool Size  : {}", maximumPoolSize);
+        log.info("Idle Timeout       : {} ms", idleTimeout);
+        log.info("Max Lifetime       : {} ms", maxLifetime);
+        log.info("Connection Timeout : {} ms", connectionTimeout);
+        log.info("=====================================================");
 
         HikariConfig config = new HikariConfig();
 
@@ -73,4 +89,12 @@ public class HikariConfiguration {
         return new HikariDataSource(config);
     }
 
+    private String maskPassword(String password) {
+
+        if (password == null || password.isBlank()) {
+            return "********";
+        }
+
+        return "*".repeat(password.length());
+    }
 }

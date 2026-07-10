@@ -11,7 +11,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ekyc
     username: baoduy
-    password: ${DB_PASSWORD}
+    password: fIttKKZFzhz9y46+t5s2SP+1fAlBU54HtptxcYDJRWjcJSsK+T3n4rDs+Q==
 
     hikari:
 
@@ -19,9 +19,7 @@ spring:
       minimum-idle: 5
       maximum-pool-size: 20
       idle-timeout: 600000
-
       max-lifetime: 1800000
-
       connection-timeout: 1000
 
 logging:
