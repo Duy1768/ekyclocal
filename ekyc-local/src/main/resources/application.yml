@@ -1,8 +1,23 @@
 server:
   port: 8080
 
-spring:
+third-party:
+  lunar:
+    base-url: https://apiamlich.thuc.me
+    api-key: ${LUNAR_API_KEY}
 
+    timeout:
+      connect: 5000
+      response: 10000
+      read: 10000
+      write: 10000
+
+    pool:
+      name: lunar-pool
+      max-connections: 50
+      pending-acquire-timeout: 30
+
+spring:
   servlet:
     multipart:
       max-file-size: 10MB
@@ -14,26 +29,23 @@ spring:
     password: fIttKKZFzhz9y46+t5s2SP+1fAlBU54HtptxcYDJRWjcJSsK+T3n4rDs+Q==
 
     hikari:
-
       pool-name: EKYC_POOL
-      minimum-idle: 5
-      maximum-pool-size: 20
-      idle-timeout: 600000
+      minimum-idle: 1
+      maximum-pool-size: 1
+      idle-timeout: 6000
       max-lifetime: 1800000
-      connection-timeout: 1000
+      connection-timeout: 300
 
 logging:
-
   level:
     root: INFO
+    reactor.netty.http.client: INFO
 
   file:
     name: logs/ekyc.log
 
   pattern:
-
     console: "[%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX,Asia/Ho_Chi_Minh}] %-5level [%X{requestId:-N/A}] [%class{0}.%M] %msg%n"
-
     file: "[%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX,Asia/Ho_Chi_Minh}] %-5level [%X{requestId:-N/A}] [%class{0}.%M] %msg%n"
 
 signature:

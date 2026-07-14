@@ -148,7 +148,10 @@ class HikariConnectionPoolTest {
         }
     }
 
-    //test tu dong giam so ket noi ve muc toi thieu khi het cao diem
+    /*
+    *
+    *
+     */
     @Test
     @Timeout(value = 40)
     void idleTimeoutShrinksPoolBackToMinimumIdle() throws Exception {

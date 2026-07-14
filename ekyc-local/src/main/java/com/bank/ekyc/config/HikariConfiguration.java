@@ -52,7 +52,7 @@ public class HikariConfiguration {
         log.info("============ CUSTOM HIKARI CONFIGURATION ============");
         log.info("Database URL       : {}", url);
         log.info("Database Username  : {}", username);
-        log.info("Database Password  : {}", maskPassword(password));
+        log.info("Database Password  : ****");
         log.info("Pool Name          : {}", poolName);
         log.info("Minimum Idle       : {}", minimumIdle);
         log.info("Maximum Pool Size  : {}", maximumPoolSize);
@@ -87,14 +87,5 @@ public class HikariConfiguration {
         config.setRegisterMbeans(true);
 
         return new HikariDataSource(config);
-    }
-
-    private String maskPassword(String password) {
-
-        if (password == null || password.isBlank()) {
-            return "********";
-        }
-
-        return "*".repeat(password.length());
     }
 }

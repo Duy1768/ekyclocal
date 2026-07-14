@@ -10,20 +10,22 @@ public enum ResponseCode {
     SUCCESS("0000", "Success"),
 
     INVALID_SIGNATURE("1001", "Invalid Signature"),
-
     INVALID_REQUEST("1002", "Invalid Request"),
+    MISSING_HEADER("1003", "Missing Header"),
 
-    MISSING_HEADER("1002", "Missing Header"),
+    FACE_NOT_MATCH("2001", "Face Not Match"),
+    LIVENESS_FAIL("2002", "Liveness Fail"),
+    CUSTOMER_NOT_FOUND("2003", "Customer Not Found"),
+    SELFIE_IMAGE_DUPLICATE_ID_CARD_IMAGE("2004", "Selfie Image Duplicate Id Card Image"),
 
-    FACE_NOT_MATCH("1003", "Face Not Match"),
+    THIRD_PARTY_TIMEOUT("3001", "Third Party Timeout"),
+    THIRD_PARTY_CONNECTION_ERROR("3002", "Third Party Connection Error"),
+    THIRD_PARTY_CLIENT_ERROR("3003", "Third Party Client Error"),
+    THIRD_PARTY_SERVER_ERROR("3004", "Third Party Server Error"),
+    THIRD_PARTY_INVALID_RESPONSE("3005", "Invalid Third Party Response"),
+    THIRD_PARTY_UNKNOWN_ERROR("3006", "Unknown Third Party Error"),
 
-    LIVENESS_FAIL("1004", "Liveness Fail"),
-
-    SYSTEM_ERROR("9999", "System Error"),
-
-    CUSTOMER_NOT_FOUND("2001", "Customer Not Found"),
-
-    SELFIE_IMAGE_DUPLICATE_ID_CARD_IMAGE("2002", "Selfie Image Duplicate Id Card Image");
+    SYSTEM_ERROR("9999", "System Error");
 
     private final String code;
 
