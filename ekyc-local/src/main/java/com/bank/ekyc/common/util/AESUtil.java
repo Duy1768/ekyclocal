@@ -17,44 +17,6 @@ public final class AESUtil {
     private static final int IV_LENGTH = 12;
     private static final int TAG_LENGTH = 128;
 
-    private AESUtil() {
-    }
-
-    public static String encrypt(String plainText, String masterKey) {
-
-        try {
-
-            SecretKeySpec secretKey = buildSecretKey(masterKey);
-
-            byte[] iv = new byte[IV_LENGTH];
-            SecureRandom random = new SecureRandom();
-            random.nextBytes(iv);
-
-            Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-
-            cipher.init(
-                    Cipher.ENCRYPT_MODE,
-                    secretKey,
-                    new GCMParameterSpec(TAG_LENGTH, iv)
-            );
-
-            byte[] cipherText =
-                    cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
-
-            ByteBuffer buffer =
-                    ByteBuffer.allocate(iv.length + cipherText.length);
-
-            buffer.put(iv);
-            buffer.put(cipherText);
-
-            return Base64.getEncoder()
-                    .encodeToString(buffer.array());
-
-        } catch (Exception e) {
-            throw new RuntimeException("Encrypt failed", e);
-        }
-    }
-
     public static String decrypt(String encryptedText, String masterKey) {
 
         try {

@@ -4,7 +4,7 @@ import com.bank.ekyc.common.constant.HeaderConstant;
 import com.bank.ekyc.common.constant.ResponseCode;
 import com.bank.ekyc.common.dto.BaseResponse;
 import com.bank.ekyc.common.util.HmacUtil;
-import com.bank.ekyc.config.SignatureProperties;
+import com.bank.ekyc.config.properties.SignatureProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -22,6 +22,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Slf4j
 @Component
@@ -31,21 +32,23 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
 
     private final SignatureProperties signatureProperties;
     private final ObjectMapper objectMapper;
+    private static final Set<String> SIGNATURE_APIS = Set.of(
+//            "/api/v1/customer",
+            "/api/v1/customer/face-compare",
+            "/api/v1/customer/liveness"
+    );
 
-    /**
-     * Chỉ kiểm tra Signature đối với API.
-     * Bỏ qua tất cả static resources.
-     */
+
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-
-        String uri = request.getRequestURI();
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             return true;
         }
 
-        return !uri.startsWith("/api/");
+        String uri = request.getRequestURI();
+
+        return !SIGNATURE_APIS.contains(uri);
     }
 
     @Override
