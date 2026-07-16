@@ -11,10 +11,26 @@ third-party:
       response: 10000
       read: 10000
       write: 10000
+      overall: 30000
 
     pool:
       name: lunar-pool
       max-connections: 50
+      pending-acquire-timeout: 30
+
+  demo:
+    base-url: http://localhost:3000
+    api-key:
+
+    timeout:
+      connect: 5000
+      response: 10000
+      read: 10000
+      write: 10000
+      overall: 30000
+    pool:
+      name: demo-pool
+      max-connections: 20
       pending-acquire-timeout: 30
 
 spring:
