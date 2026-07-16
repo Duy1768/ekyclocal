@@ -7,6 +7,10 @@ import java.util.List;
 @Data
 public class LunarResponse {
 
+    private String code;
+
+    private String message;
+
     private String solarDate;
 
     private String lunarDate;
