@@ -25,7 +25,8 @@ public enum ResponseCode {
     THIRD_PARTY_INVALID_RESPONSE("3005", "Invalid Third Party Response"),
     THIRD_PARTY_UNKNOWN_ERROR("3006", "Unknown Third Party Error"),
 
-    SYSTEM_ERROR("9999", "System Error");
+    SYSTEM_ERROR("9999", "System Error"),
+    UNKNOWN_ERROR("9998", "Unknow Error");
 
     private final String code;
 

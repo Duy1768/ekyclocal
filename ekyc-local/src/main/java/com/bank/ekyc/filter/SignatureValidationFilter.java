@@ -32,12 +32,14 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
 
     private final SignatureProperties signatureProperties;
     private final ObjectMapper objectMapper;
-    private static final Set<String> SIGNATURE_APIS = Set.of(
-//            "/api/v1/customer",
+
+    /**
+     * Chỉ validate signature cho các API eKYC.
+     */
+    private static final Set<String> EKYC_SIGNATURE_APIS = Set.of(
             "/api/v1/customer/face-compare",
             "/api/v1/customer/liveness"
     );
-
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
@@ -46,9 +48,7 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
             return true;
         }
 
-        String uri = request.getRequestURI();
-
-        return !SIGNATURE_APIS.contains(uri);
+        return !EKYC_SIGNATURE_APIS.contains(request.getRequestURI());
     }
 
     @Override
@@ -57,6 +57,21 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain)
             throws ServletException, IOException {
+
+        validateEkycSignature(
+                request,
+                response,
+                filterChain);
+    }
+
+    /**
+     * PlainText = body + requestId + requestDateTime
+     */
+    private void validateEkycSignature(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            FilterChain filterChain)
+            throws IOException, ServletException {
 
         String requestId = firstNonBlank(
                 request.getHeader(HeaderConstant.REQUEST_ID),
@@ -124,7 +139,6 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
         String uri = request.getRequestURI();
 
         if ("/api/v1/customer".equals(uri)) {
-
             return "fullName="
                     + request.getParameter("fullName")
                     + "&idNumber="
@@ -136,13 +150,11 @@ public class SignatureValidationFilter extends OncePerRequestFilter {
         }
 
         if ("/api/v1/customer/face-compare".equals(uri)) {
-
             return "customerCode="
                     + request.getParameter("customerCode");
         }
 
         if ("/api/v1/customer/liveness".equals(uri)) {
-
             return "";
         }
 

@@ -33,6 +33,21 @@ third-party:
       max-connections: 20
       pending-acquire-timeout: 30
 
+  regex:
+    base-url: http://localhost:8081
+    api-key:
+
+    timeout:
+      connect: 5000
+      response: 10000
+      read: 10000
+      write: 10000
+      overall: 30000
+    pool:
+      name: regex-pool
+      max-connections: 20
+      pending-acquire-timeout: 30
+
 spring:
   servlet:
     multipart:

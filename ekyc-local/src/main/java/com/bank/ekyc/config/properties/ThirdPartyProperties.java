@@ -5,16 +5,27 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Data
-@ConfigurationProperties(prefix = "third-party.demo")
-public class DemoProperties {
+@ConfigurationProperties(prefix = "third-party.regex")
+public class ThirdPartyProperties {
 
     private String baseUrl;
 
     private String apiKey;
 
-    private Timeout timeout;
+    private Retry retry = new Retry();
 
-    private Pool pool;
+    private Timeout timeout = new Timeout();
+
+    private Pool pool = new Pool();
+
+    @Data
+    public static class Retry {
+
+        private Integer maxAttempts;
+
+        private Integer delay;
+
+    }
 
     @Data
     public static class Timeout {
