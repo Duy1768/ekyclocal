@@ -2,6 +2,7 @@ package com.bank.ekyc.infrastructure.client;
 
 import com.bank.ekyc.common.constant.ResponseCode;
 import com.bank.ekyc.common.exception.BusinessException;
+import com.bank.ekyc.config.properties.LunarProperties;
 import com.bank.ekyc.domain.gateway.LunarGateway;
 import com.bank.ekyc.infrastructure.external.response.TodayResponse;
 import io.netty.channel.ConnectTimeoutException;
@@ -25,6 +26,7 @@ import java.util.concurrent.TimeoutException;
 public class LunarGatewayImpl implements LunarGateway {
 
     private final WebClient lunarWebClient;
+    private final LunarProperties lunarProperties ;
 
     @Override
     public TodayResponse getToday() {
@@ -69,12 +71,19 @@ public class LunarGatewayImpl implements LunarGateway {
 
                     .bodyToMono(TodayResponse.class)
 
+                    .timeout(Duration.ofMillis(
+                            lunarProperties.getTimeout().getOverall()))
+
                     .retryWhen(
-
                             Retry.backoff(3, Duration.ofSeconds(2))
-
                                     .filter(this::isTimeoutException)
-
+                                    .doBeforeRetry(retry ->
+                                            log.warn(
+                                                    "Retry lần {} - {}",
+                                                    retry.totalRetries() + 1,
+                                                    retry.failure().getClass().getSimpleName()
+                                            )
+                                    )
                     )
 
                     .onErrorMap(this::mapThirdPartyException)
@@ -189,7 +198,7 @@ public class LunarGatewayImpl implements LunarGateway {
                 || hasCause(ex, WriteTimeoutException.class)
                 || hasCause(ex, TimeoutException.class)) {
 
-            return ResponseCode.THIRD_PARTY_TIMEOUT;
+                return ResponseCode.THIRD_PARTY_TIMEOUT;
 
         }
 

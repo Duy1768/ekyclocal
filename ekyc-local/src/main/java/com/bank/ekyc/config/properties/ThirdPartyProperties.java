@@ -2,37 +2,53 @@ package com.bank.ekyc.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 @Data
-@ConfigurationProperties(prefix = "third-party.lunar")
-public class LunarProperties {
+@ConfigurationProperties(prefix = "third-party.regex")
+public class ThirdPartyProperties {
 
     private String baseUrl;
 
     private String apiKey;
 
-    private Timeout timeout;
+    private Retry retry = new Retry();
 
-    private Pool pool;
+    private Timeout timeout = new Timeout();
+
+    private Pool pool = new Pool();
 
     @Data
-    public static class Timeout
-    {
+    public static class Retry {
+
+        private Integer maxAttempts;
+
+        private Integer delay;
+
+    }
+
+    @Data
+    public static class Timeout {
 
         private Integer connect;
+
         private Integer response;
+
         private Integer read;
+
         private Integer write;
+
         private Integer overall;
 
     }
 
     @Data
-    public static class Pool
-    {
+    public static class Pool {
 
         private String name;
+
         private Integer maxConnections;
+
         private Integer pendingAcquireTimeout;
 
     }
